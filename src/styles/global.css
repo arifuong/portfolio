@@ -19,10 +19,6 @@
   /* Typography */
   --font-display: 'Space Grotesk', system-ui, sans-serif;
   --font-body: 'Inter', system-ui, sans-serif;
-
-  /* Animations */
-  --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  --animate-fade-in: fade-in 0.4s ease forwards;
 }
 
 /* ===== Google Fonts ===== */
@@ -32,23 +28,6 @@
   font-weight: 400 700;
   font-display: swap;
   src: url('https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@400;500;600;700&display=swap');
-}
-
-/* ===== Keyframe Animations ===== */
-@keyframes fade-up {
-  from {
-    opacity: 0;
-    transform: translate3d(0, 24px, 0);
-  }
-  to {
-    opacity: 1;
-    transform: translate3d(0, 0, 0);
-  }
-}
-
-@keyframes fade-in {
-  from { opacity: 0; }
-  to { opacity: 1; }
 }
 
 /* ===== Base Styles & Viewport Containment ===== */
@@ -92,72 +71,6 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 4px;
 }
 
-/* ===== Scroll Reveal Utility ===== */
-.reveal {
-  opacity: 0;
-  transform: translate3d(0, 24px, 0);
-  will-change: opacity, transform;
-  backface-visibility: hidden;
-  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.reveal.visible {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-
-/* Stagger children */
-.reveal-stagger .reveal-child {
-  opacity: 0;
-  transform: translate3d(0, 16px, 0);
-  will-change: opacity, transform;
-  backface-visibility: hidden;
-  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
-              transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
-}
-
-.reveal-stagger.visible .reveal-child {
-  opacity: 1;
-  transform: translate3d(0, 0, 0);
-}
-
-/* ===== GSAP Stacked Full-Page Section Styling ===== */
-.stacked-page {
-  position: relative;
-  width: 100%;
-  min-height: 100vh;
-  overflow: hidden;
-  will-change: transform;
-  backface-visibility: hidden;
-  transform: translate3d(0, 0, 0);
-  box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.08);
-}
-
-/* Mobile adjustments */
-@media (max-width: 767px) {
-  .stacked-page {
-    box-shadow: 0 -12px 36px rgba(0, 0, 0, 0.06);
-  }
-
-  .reveal {
-    transform: translate3d(0, 12px, 0);
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
-  }
-
-  /* Prevent heavy blur layers from rendering offscreen on mobile */
-  .velocity-bg {
-    display: none !important;
-  }
-}
-
-/* Touch vs Hover Device Rules */
-@media (hover: none) {
-  .hover\:-translate-y-1:hover {
-    transform: none !important;
-  }
-}
-
 /* ===== Smooth Scrollbar ===== */
 ::-webkit-scrollbar {
   width: 8px;
@@ -174,25 +87,4 @@ h1, h2, h3, h4, h5, h6 {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-neutral-500);
-}
-
-/* ===== Reduced Motion ===== */
-@media (prefers-reduced-motion: reduce) {
-  *, *::before, *::after {
-    animation-duration: 0.01ms !important;
-    animation-iteration-count: 1 !important;
-    transition-duration: 0.01ms !important;
-    scroll-behavior: auto !important;
-  }
-
-  .stacked-page {
-    position: relative !important;
-    top: auto !important;
-  }
-
-  .reveal,
-  .reveal-stagger .reveal-child {
-    opacity: 1 !important;
-    transform: none !important;
-  }
 }

@@ -8,9 +8,9 @@ const expKeys = [
 ];
 ---
 
-<section id="experience" class="stacked-page relative z-50 bg-gray-50/95 border-t border-gray-100 flex flex-col justify-center py-16 sm:py-24">
+<section id="experience" class="py-16 sm:py-24 border-b border-gray-100 bg-gray-50">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full">
-    <div class="max-w-2xl mb-12 reveal">
+    <div class="max-w-2xl mb-12">
       <div 
         data-i18n="expEyebrow"
         class="inline-block text-xs font-bold uppercase tracking-widest text-[#0047FF] mb-2"
@@ -32,7 +32,7 @@ const expKeys = [
     </div>
 
     <!-- Vertical Timeline -->
-    <div class="relative pl-6 sm:pl-8 border-l-2 border-gray-200 max-w-3xl space-y-10 reveal">
+    <div class="relative pl-6 sm:pl-8 border-l-2 border-gray-200 max-w-3xl space-y-10">
       {experienceData.map((exp, idx) => {
         const keys = expKeys[idx] || { roleKey: '', companyKey: '', projectKey: '', periodKey: '', descKey: '' };
         return (

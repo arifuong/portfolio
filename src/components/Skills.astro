@@ -35,9 +35,9 @@ const categories = [
 ];
 ---
 
-<section id="skills" class="stacked-page relative z-30 bg-gray-50/95 border-t border-gray-100 flex flex-col justify-center py-16 sm:py-24">
+<section id="skills" class="py-16 sm:py-24 border-b border-gray-100 bg-gray-50">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full">
-    <div class="max-w-2xl mb-12 reveal">
+    <div class="max-w-2xl mb-12">
       <div 
         data-i18n="skillsEyebrow"
         class="inline-block text-xs font-bold uppercase tracking-widest text-[#0047FF] mb-2"
@@ -61,7 +61,7 @@ const categories = [
     <!-- Skills Category Grid -->
     <div class="grid grid-cols-1 md:grid-cols-2 lg:grid-cols-3 gap-6">
       {categories.map((cat) => (
-        <div class="p-6 rounded-2xl bg-white border border-gray-200 shadow-sm hover:border-gray-300 transition-all duration-300 reveal">
+        <div class="p-6 rounded-2xl bg-white border border-gray-200 shadow-sm hover:border-gray-300 transition-all duration-300">
           <div class="flex items-center gap-3 mb-4 pb-3 border-b border-gray-100">
             <div class="p-2 rounded-lg bg-blue-50 text-[#0047FF]">
               <svg class="w-5 h-5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round" set:html={cat.svg}></svg>
