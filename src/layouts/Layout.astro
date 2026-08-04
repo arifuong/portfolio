@@ -8,10 +8,14 @@ interface Props {
 
 const {
   title = "Mohamad Arifin Hasbi — Full Stack Developer & Mahasiswa Teknik Informatika",
-  description = "Portofolio resmi Mohamad Arifin Hasbi, Full Stack Developer dan mahasiswa Teknik Informatika STMIK Mardira Indonesia (IPK 3.64). Menguasai Spring Boot, Laravel, React, dan MySQL."
+  description = "Portofolio resmi Mohamad Arifin Hasbi, Full Stack Developer dan mahasiswa Teknik Informatika STMIK Mardira Indonesia (IPK 3.64). Menguasai Java Spring Boot, Laravel, CodeIgniter, React, JavaScript, TypeScript, dan MySQL."
 } = Astro.props;
 
-const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://arifin-hasbi.vercel.app');
+const canonicalURL = new URL(
+  Astro.url.pathname,
+  Astro.site || 'https://portfolio-zeta-navy-gbloxdhna7.vercel.app'
+);
+
 const ogImageURL = new URL('/og-image.png', canonicalURL);
 
 const personSchema = {
@@ -19,11 +23,11 @@ const personSchema = {
   "@type": "Person",
   "name": "Mohamad Arifin Hasbi",
   "jobTitle": "Full Stack Developer",
-  "almaMater": {
+  "url": canonicalURL.toString(),
+  "alumniOf": {
     "@type": "CollegeOrUniversity",
     "name": "STMIK Mardira Indonesia"
   },
-  "url": canonicalURL.toString(),
   "sameAs": [
     "https://github.com/arifuong",
     "https://www.linkedin.com/in/mohamad-arifin-hasbi-88915b425/",
@@ -32,9 +36,14 @@ const personSchema = {
   "knowsAbout": [
     "Software Engineering",
     "Full Stack Development",
-    "Java", "Spring Boot",
-    "PHP", "Laravel", "CodeIgniter",
-    "JavaScript", "TypeScript", "React",
+    "Java",
+    "Spring Boot",
+    "PHP",
+    "Laravel",
+    "CodeIgniter",
+    "JavaScript",
+    "TypeScript",
+    "React",
     "MySQL"
   ]
 };
