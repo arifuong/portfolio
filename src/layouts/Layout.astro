@@ -82,40 +82,5 @@ const personSchema = {
 </head>
 <body class="bg-[#FFFFFF] text-[#4B5563] antialiased selection:bg-[#0047FF] selection:text-white min-h-screen flex flex-col w-full max-w-full overflow-x-hidden">
   <slot />
-
-  <!-- Frozen Hero + GSAP About Slide Cover Transition (Desktop Only) -->
-  <script>
-    const isDesktop = window.innerWidth >= 768;
-    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-
-    if (isDesktop && !isReducedMotion) {
-      window.addEventListener('load', async () => {
-        const { gsap } = await import('gsap');
-        const { ScrollTrigger } = await import('gsap/ScrollTrigger');
-        gsap.registerPlugin(ScrollTrigger);
-
-        const about = document.getElementById('about');
-
-        if (about) {
-          // Animate ONLY About section sliding upward over static sticky Hero
-          gsap.fromTo(about,
-            { yPercent: 100 },
-            {
-              yPercent: 0,
-              ease: 'none',
-              scrollTrigger: {
-                trigger: about,
-                start: 'top bottom',
-                end: 'top top',
-                scrub: true,
-                invalidateOnRefresh: true,
-                id: 'cover-about',
-              }
-            }
-          );
-        }
-      });
-    }
-  </script>
 </body>
 </html>
