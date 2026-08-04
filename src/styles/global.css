@@ -22,9 +22,7 @@
 
   /* Animations */
   --animate-fade-up: fade-up 0.7s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  --animate-fade-in: fade-in 0.5s ease forwards;
-  --animate-slide-in-left: slide-in-left 0.6s cubic-bezier(0.16, 1, 0.3, 1) forwards;
-  --animate-stagger: fade-up 0.5s cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  --animate-fade-in: fade-in 0.4s ease forwards;
 }
 
 /* ===== Google Fonts ===== */
@@ -40,11 +38,11 @@
 @keyframes fade-up {
   from {
     opacity: 0;
-    transform: translateY(24px);
+    transform: translate3d(0, 24px, 0);
   }
   to {
     opacity: 1;
-    transform: translateY(0);
+    transform: translate3d(0, 0, 0);
   }
 }
 
@@ -53,19 +51,13 @@
   to { opacity: 1; }
 }
 
-@keyframes slide-in-left {
-  from {
-    opacity: 0;
-    transform: translateX(-24px);
-  }
-  to {
-    opacity: 1;
-    transform: translateX(0);
-  }
-}
-
-/* ===== Base Styles ===== */
-html {
+/* ===== Base Styles & Viewport Containment ===== */
+html,
+body {
+  width: 100%;
+  max-width: 100%;
+  overflow-x: hidden;
+  -webkit-overflow-scrolling: touch;
   scroll-behavior: smooth;
   -webkit-font-smoothing: antialiased;
   -moz-osx-font-smoothing: grayscale;
@@ -76,7 +68,7 @@ body {
   color: var(--color-neutral-600);
   background-color: var(--color-neutral-50);
   line-height: 1.6;
-  overflow-x: hidden;
+  position: relative;
 }
 
 /* ===== Typography ===== */
@@ -100,30 +92,60 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 4px;
 }
 
-/* ===== Scroll Reveal Utility ===== */
+/* ===== Scroll Reveal Utility with GPU Acceleration ===== */
 .reveal {
   opacity: 0;
-  transform: translateY(24px);
-  transition: opacity 0.7s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.7s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(0, 20px, 0);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  transition: opacity 0.6s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.6s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal.visible {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
 }
 
 /* Stagger children */
 .reveal-stagger .reveal-child {
   opacity: 0;
-  transform: translateY(16px);
-  transition: opacity 0.5s cubic-bezier(0.16, 1, 0.3, 1),
-              transform 0.5s cubic-bezier(0.16, 1, 0.3, 1);
+  transform: translate3d(0, 12px, 0);
+  will-change: opacity, transform;
+  backface-visibility: hidden;
+  transition: opacity 0.4s cubic-bezier(0.16, 1, 0.3, 1),
+              transform 0.4s cubic-bezier(0.16, 1, 0.3, 1);
 }
 
 .reveal-stagger.visible .reveal-child {
   opacity: 1;
-  transform: translateY(0);
+  transform: translate3d(0, 0, 0);
+}
+
+/* ===== Mobile-Specific Lightweight Animation & Scroll Fixes ===== */
+@media (max-width: 767px) {
+  .reveal {
+    transform: translate3d(0, 10px, 0);
+    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+  }
+
+  .reveal-stagger .reveal-child {
+    transform: translate3d(0, 8px, 0);
+    transition: opacity 0.3s ease-out, transform 0.3s ease-out;
+  }
+
+  /* Prevent heavy blur layers from rendering offscreen on mobile */
+  .velocity-bg {
+    display: none !important;
+  }
+}
+
+/* ===== Touch vs Hover Device Rules ===== */
+@media (hover: none) {
+  /* Disable heavy card lift on touch screens to eliminate scroll jank */
+  .hover\:-translate-y-1:hover {
+    transform: none !important;
+  }
 }
 
 /* ===== Smooth Scrollbar ===== */
@@ -153,13 +175,9 @@ h1, h2, h3, h4, h5, h6 {
     scroll-behavior: auto !important;
   }
 
-  .reveal {
-    opacity: 1;
-    transform: none;
-  }
-
+  .reveal,
   .reveal-stagger .reveal-child {
-    opacity: 1;
-    transform: none;
+    opacity: 1 !important;
+    transform: none !important;
   }
 }

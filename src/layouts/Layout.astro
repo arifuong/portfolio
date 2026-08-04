@@ -80,31 +80,63 @@ const personSchema = {
   <script is:inline src="/js/i18n.js"></script>
   <script is:inline src="/js/main.js"></script>
 </head>
-<body class="bg-[#FFFFFF] text-[#4B5563] antialiased selection:bg-[#0047FF] selection:text-white min-h-screen flex flex-col">
+<body class="bg-[#FFFFFF] text-[#4B5563] antialiased selection:bg-[#0047FF] selection:text-white min-h-screen flex flex-col w-full max-w-full overflow-x-hidden">
   <slot />
 
   <!-- Client-side Animation & Lenis Script -->
   <script>
-    import Lenis from 'lenis';
+    const isDesktop = window.innerWidth >= 768;
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Initialize Lenis Smooth Scroll
-    const lenis = new Lenis({
-      duration: 1.2,
-      easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
-      smoothWheel: true,
-    });
+    // Initialize Lenis ONLY on Desktop (>=768px). Native touch scrolling on Mobile (<768px).
+    if (isDesktop && !isReducedMotion) {
+      import('lenis').then(({ default: Lenis }) => {
+        const lenis = new Lenis({
+          duration: 1.2,
+          easing: (t) => Math.min(1, 1.001 - Math.pow(2, -10 * t)),
+          smoothWheel: true,
+        });
 
-    function raf(time: number) {
-      lenis.raf(time);
-      requestAnimationFrame(raf);
+        function raf(time: number) {
+          lenis.raf(time);
+          requestAnimationFrame(raf);
+        }
+        requestAnimationFrame(raf);
+
+        // GSAP ScrollTrigger integration for Desktop velocity scroll
+        window.addEventListener('load', async () => {
+          const { gsap } = await import('gsap');
+          const { ScrollTrigger } = await import('gsap/ScrollTrigger');
+          gsap.registerPlugin(ScrollTrigger);
+
+          lenis.on('scroll', ScrollTrigger.update);
+          gsap.ticker.add((time) => {
+            lenis.raf(time * 1000);
+          });
+          gsap.ticker.lagSmoothing(0);
+
+          // Velocity Scroll effect on background accent elements (Desktop only)
+          gsap.utils.toArray<HTMLElement>('.velocity-bg').forEach((el) => {
+            gsap.to(el, {
+              yPercent: -20,
+              ease: 'none',
+              scrollTrigger: {
+                trigger: el.parentElement || el,
+                start: 'top bottom',
+                end: 'bottom top',
+                scrub: 1
+              }
+            });
+          });
+        });
+      });
     }
-    requestAnimationFrame(raf);
 
-    // Intersection Observer for Scroll Reveal
+    // Lightweight Intersection Observer for Scroll Reveal (Optimized for all viewports)
     const observerOptions = {
       root: null,
-      rootMargin: '0px 0px -50px 0px',
-      threshold: 0.15
+      rootMargin: isDesktop ? '0px 0px -50px 0px' : '0px 0px -20px 0px',
+      threshold: isDesktop ? 0.15 : 0.05
     };
 
     const observer = new IntersectionObserver((entries) => {
@@ -118,36 +150,6 @@ const personSchema = {
     document.querySelectorAll('.reveal, .reveal-stagger').forEach((el) => {
       observer.observe(el);
     });
-
-    // Lazy load GSAP after initial paint if not reduced motion
-    if (!window.matchMedia('(prefers-reduced-motion: reduce)').matches) {
-      window.addEventListener('load', async () => {
-        const { gsap } = await import('gsap');
-        const { ScrollTrigger } = await import('gsap/ScrollTrigger');
-        gsap.registerPlugin(ScrollTrigger);
-
-        // Update Lenis on ScrollTrigger update
-        lenis.on('scroll', ScrollTrigger.update);
-        gsap.ticker.add((time) => {
-          lenis.raf(time * 1000);
-        });
-        gsap.ticker.lagSmoothing(0);
-
-        // Velocity Scroll effect on background accent elements
-        gsap.utils.toArray<HTMLElement>('.velocity-bg').forEach((el) => {
-          gsap.to(el, {
-            yPercent: -20,
-            ease: 'none',
-            scrollTrigger: {
-              trigger: el.parentElement || el,
-              start: 'top bottom',
-              end: 'bottom top',
-              scrub: 1
-            }
-          });
-        });
-      });
-    }
   </script>
 </body>
 </html>
