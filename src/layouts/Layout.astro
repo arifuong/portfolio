@@ -88,7 +88,7 @@ const personSchema = {
     const isDesktop = window.innerWidth >= 768;
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Initialize Lenis & GSAP Master Timeline on Desktop (>=768px)
+    // Initialize Lenis & Independent Section GSAP ScrollTriggers on Desktop (>=768px)
     if (isDesktop && !isReducedMotion) {
       import('lenis').then(({ default: Lenis }) => {
         const lenis = new Lenis({
@@ -103,7 +103,7 @@ const personSchema = {
         }
         requestAnimationFrame(raf);
 
-        // Single Master GSAP Timeline for Stacked Page Cover Transitions
+        // Independent GSAP ScrollTriggers for Section Pairs (Hero->About, About->Skills, Skills->Projects, Projects->Experience)
         window.addEventListener('load', async () => {
           const { gsap } = await import('gsap');
           const { ScrollTrigger } = await import('gsap/ScrollTrigger');
@@ -115,37 +115,41 @@ const personSchema = {
           });
           gsap.ticker.lagSmoothing(0);
 
-          const mainContent = document.getElementById('main-content');
-          const sections = gsap.utils.toArray<HTMLElement>('.stacked-page');
+          const sectionIds = ['hero', 'about', 'skills', 'projects', 'experience'];
+          const sections = sectionIds.map(id => document.getElementById(id)).filter(Boolean) as HTMLElement[];
 
-          if (mainContent && sections.length > 1) {
-            // Master Timeline pinning main-content container
-            const masterTl = gsap.timeline({
-              scrollTrigger: {
-                trigger: mainContent,
-                start: 'top top',
-                end: `+=${(sections.length - 1) * 100}%`,
-                scrub: 1, // Fluid 1-second scrub
-                pin: true,
-                anticipatePin: 1,
-                invalidateOnRefresh: true,
-              }
+          sections.forEach((section, i) => {
+            if (i >= sections.length - 1) return;
+
+            const nextSection = sections[i + 1];
+
+            // Independent pin for current section while next section covers it
+            ScrollTrigger.create({
+              trigger: section,
+              start: 'top top',
+              end: '+=100%',
+              pin: true,
+              pinSpacing: false,
+              id: `pin-${section.id}`
             });
 
-            sections.forEach((section, i) => {
-              if (i === 0) return; // Hero stays anchored as base page
-
-              // Set initial position completely below viewport
-              gsap.set(section, { yPercent: 100 });
-
-              // Slide section upward to cover the previous page
-              masterTl.to(section, {
+            // Independent slide for next section from yPercent: 100 to 0
+            gsap.fromTo(nextSection,
+              { yPercent: 100 },
+              {
                 yPercent: 0,
                 ease: 'none',
-                duration: 1,
-              });
-            });
-          }
+                scrollTrigger: {
+                  trigger: nextSection,
+                  start: 'top bottom',
+                  end: 'top top',
+                  scrub: true,
+                  invalidateOnRefresh: true,
+                  id: `slide-${nextSection.id}`
+                }
+              }
+            );
+          });
 
           // Velocity Scroll effect on background accent elements (Desktop only)
           gsap.utils.toArray<HTMLElement>('.velocity-bg').forEach((el) => {
