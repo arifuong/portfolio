@@ -1,4 +1,4 @@
 User-agent: *
 Allow: /
 
-Sitemap: https://arifin-hasbi.vercel.app/sitemap-index.xml
+Sitemap: https://portfolio-zeta-navy-gbloxdhna7.vercel.app/sitemap-index.xml
