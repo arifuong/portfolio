@@ -8,10 +8,10 @@ const navLinks = [
 ];
 ---
 
-<!-- Floating Sticky Header Outer Container -->
+<!-- Floating Sticky Header Outer Container (z-[9999] isolate permanently on top of all sections) -->
 <div 
   id="navbar-container"
-  class="fixed top-0 left-0 right-0 z-50 flex justify-center w-full px-3 sm:px-6 pointer-events-none transition-all duration-350 ease-[cubic-bezier(0.22,0.61,0.36,1)]"
+  class="fixed top-0 left-0 right-0 z-[9999] isolate flex justify-center w-full px-3 sm:px-6 pointer-events-none transition-all duration-350 ease-[cubic-bezier(0.22,0.61,0.36,1)]"
 >
   <header 
     id="navbar-inner"
@@ -108,10 +108,10 @@ const navLinks = [
   </header>
 </div>
 
-<!-- Mobile Dropdown Menu -->
+<!-- Mobile Dropdown Menu (z-[9999]) -->
 <div 
   id="mobile-menu" 
-  class="hidden md:hidden fixed top-20 left-3 right-3 z-40 border border-gray-200/70 bg-white/80 backdrop-blur-2xl px-5 pt-3 pb-6 rounded-2xl shadow-[0_12px_32px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.8)] transition-all duration-300"
+  class="hidden md:hidden fixed top-20 left-3 right-3 z-[9999] border border-gray-200/70 bg-white/80 backdrop-blur-2xl px-5 pt-3 pb-6 rounded-2xl shadow-[0_12px_32px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.8)] transition-all duration-300"
   aria-label="Navigasi Mobile"
 >
   <ul class="flex flex-col gap-3 text-base font-medium">
