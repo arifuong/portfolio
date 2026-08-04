@@ -91,14 +91,6 @@ export interface TranslationSchema {
   contactSendWhatsapp: string;
   contactVisitGithub: string;
   contactVisitLinkedin: string;
-  contactFormTitle: string;
-  contactNameLabel: string;
-  contactNamePlaceholder: string;
-  contactEmailInputLabel: string;
-  contactEmailPlaceholder: string;
-  contactMessageLabel: string;
-  contactMessagePlaceholder: string;
-  contactSubmitBtn: string;
   contactCopySuccess: string;
 
   // Footer
@@ -201,14 +193,6 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     contactSendWhatsapp: "Send Message →",
     contactVisitGithub: "Visit Profile →",
     contactVisitLinkedin: "View Profile →",
-    contactFormTitle: "Send a Direct Message",
-    contactNameLabel: "Full Name",
-    contactNamePlaceholder: "Enter your full name",
-    contactEmailInputLabel: "Your Email",
-    contactEmailPlaceholder: "name@example.com",
-    contactMessageLabel: "Message",
-    contactMessagePlaceholder: "Write your message or inquiry here...",
-    contactSubmitBtn: "Send Message",
     contactCopySuccess: "Email address copied to clipboard!",
 
     // Footer
@@ -309,14 +293,6 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     contactSendWhatsapp: "Kirim Pesan →",
     contactVisitGithub: "Kunjungi Profil →",
     contactVisitLinkedin: "Kunjungi Profil →",
-    contactFormTitle: "Kirim Pesan Langsung",
-    contactNameLabel: "Nama Lengkap",
-    contactNamePlaceholder: "Masukkan nama Anda",
-    contactEmailInputLabel: "Email Anda",
-    contactEmailPlaceholder: "nama@email.com",
-    contactMessageLabel: "Pesan",
-    contactMessagePlaceholder: "Tuliskan pesan atau penawaran Anda di sini...",
-    contactSubmitBtn: "Kirim Pesan",
     contactCopySuccess: "Alamat email berhasil disalin!",
 
     // Footer
