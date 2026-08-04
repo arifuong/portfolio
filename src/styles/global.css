@@ -92,19 +92,19 @@ h1, h2, h3, h4, h5, h6 {
   border-radius: 4px;
 }
 
-/* ===== Scroll Reveal Utility with GPU Acceleration & Overlapping Scale ===== */
+/* ===== Scroll Reveal Utility ===== */
 .reveal {
   opacity: 0;
-  transform: translate3d(0, 36px, 0) scale(0.98);
+  transform: translate3d(0, 24px, 0);
   will-change: opacity, transform;
   backface-visibility: hidden;
-  transition: opacity 0.7s cubic-bezier(0.22, 0.61, 0.36, 1),
-              transform 0.7s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: opacity 0.6s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.6s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal.visible {
   opacity: 1;
-  transform: translate3d(0, 0, 0) scale(1);
+  transform: translate3d(0, 0, 0);
 }
 
 /* Stagger children */
@@ -113,8 +113,8 @@ h1, h2, h3, h4, h5, h6 {
   transform: translate3d(0, 16px, 0);
   will-change: opacity, transform;
   backface-visibility: hidden;
-  transition: opacity 0.5s cubic-bezier(0.22, 0.61, 0.36, 1),
-              transform 0.5s cubic-bezier(0.22, 0.61, 0.36, 1);
+  transition: opacity 0.5s cubic-bezier(0.22, 1, 0.36, 1),
+              transform 0.5s cubic-bezier(0.22, 1, 0.36, 1);
 }
 
 .reveal-stagger.visible .reveal-child {
@@ -122,39 +122,38 @@ h1, h2, h3, h4, h5, h6 {
   transform: translate3d(0, 0, 0);
 }
 
-/* ===== Overlapping Section Layer Styling ===== */
-.layer-section {
-  position: relative;
-  will-change: transform, opacity;
+/* ===== Stacked Full-Page Section Styling ===== */
+.stacked-page {
+  position: sticky;
+  top: 0;
+  width: 100%;
+  min-height: 100vh;
+  overflow: hidden;
+  will-change: transform;
   backface-visibility: hidden;
-  box-shadow: 0 -16px 48px rgba(0, 0, 0, 0.06);
+  transform: translate3d(0, 0, 0);
+  box-shadow: 0 -20px 60px rgba(0, 0, 0, 0.08);
 }
 
-/* ===== Mobile-Specific Lightweight Animation & Scroll Fixes ===== */
+/* Mobile adjustments */
 @media (max-width: 767px) {
-  .reveal {
-    transform: translate3d(0, 16px, 0) scale(0.99);
-    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
+  .stacked-page {
+    box-shadow: 0 -12px 36px rgba(0, 0, 0, 0.06);
   }
 
-  .reveal-stagger .reveal-child {
-    transform: translate3d(0, 10px, 0);
-    transition: opacity 0.35s ease-out, transform 0.35s ease-out;
+  .reveal {
+    transform: translate3d(0, 12px, 0);
+    transition: opacity 0.4s ease-out, transform 0.4s ease-out;
   }
 
   /* Prevent heavy blur layers from rendering offscreen on mobile */
   .velocity-bg {
     display: none !important;
   }
-
-  .layer-section {
-    box-shadow: 0 -10px 30px rgba(0, 0, 0, 0.04);
-  }
 }
 
-/* ===== Touch vs Hover Device Rules ===== */
+/* Touch vs Hover Device Rules */
 @media (hover: none) {
-  /* Disable heavy card lift on touch screens to eliminate scroll jank */
   .hover\:-translate-y-1:hover {
     transform: none !important;
   }
@@ -185,6 +184,11 @@ h1, h2, h3, h4, h5, h6 {
     animation-iteration-count: 1 !important;
     transition-duration: 0.01ms !important;
     scroll-behavior: auto !important;
+  }
+
+  .stacked-page {
+    position: relative !important;
+    top: auto !important;
   }
 
   .reveal,
