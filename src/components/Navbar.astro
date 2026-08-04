@@ -11,11 +11,11 @@ const navLinks = [
 <!-- Floating Sticky Header Outer Container (z-[9999] isolate permanently on top of all sections) -->
 <div 
   id="navbar-container"
-  class="fixed top-0 left-0 right-0 z-[9999] isolate flex justify-center w-full px-3 sm:px-6 pointer-events-none transition-all duration-350 ease-[cubic-bezier(0.22,0.61,0.36,1)]"
+  class="fixed top-0 left-0 right-0 z-[9999] isolate flex justify-center w-full px-3 sm:px-6 pointer-events-none transition-all duration-300 ease-[cubic-bezier(0.22,0.61,0.36,1)]"
 >
   <header 
     id="navbar-inner"
-    class="pointer-events-auto w-full max-w-6xl h-16 flex items-center justify-between px-4 sm:px-6 transition-all duration-350 ease-[cubic-bezier(0.22,0.61,0.36,1)] border border-transparent bg-transparent rounded-2xl sm:rounded-full"
+    class="pointer-events-auto w-full max-w-6xl h-16 flex items-center justify-between px-4 sm:px-6 transition-all duration-300 ease-[cubic-bezier(0.22,0.61,0.36,1)] border border-transparent bg-transparent rounded-full"
   >
     <!-- Left: Brand Logo -->
     <a 
@@ -108,10 +108,10 @@ const navLinks = [
   </header>
 </div>
 
-<!-- Mobile Dropdown Menu (z-[9999]) -->
+<!-- Mobile Dropdown Menu (z-[9999] Frosted Glass) -->
 <div 
   id="mobile-menu" 
-  class="hidden md:hidden fixed top-20 left-3 right-3 z-[9999] border border-gray-200/70 bg-white/80 backdrop-blur-2xl px-5 pt-3 pb-6 rounded-2xl shadow-[0_12px_32px_rgba(0,0,0,0.12),inset_0_1px_0_rgba(255,255,255,0.8)] transition-all duration-300"
+  class="hidden md:hidden fixed top-20 left-3 right-3 z-[9999] border border-[rgba(255,255,255,0.4)] bg-[rgba(255,255,255,0.75)] backdrop-blur-[30px] backdrop-saturate-[180%] px-5 pt-3 pb-6 rounded-3xl shadow-[0_12px_36px_rgba(15,23,42,0.1),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-300"
   aria-label="Navigasi Mobile"
 >
   <ul class="flex flex-col gap-3 text-base font-medium">
@@ -184,15 +184,16 @@ const navLinks = [
     const scrollY = window.scrollY;
 
     if (scrollY >= 40) {
-      // Ultra-light Frosted Glass Capsule State (24px blur, 65% opacity, soft shadow, inset edge glow)
+      // True Frosted Glassmorphism Pill (rgba(255,255,255,0.18), blur 30px, saturate 180%, 1px rgba(255,255,255,0.35) border, inset highlight)
       navbarContainer?.classList.add('top-3', 'sm:top-4');
       navbarContainer?.classList.remove('top-0');
 
       navbarInner?.classList.add(
-        'bg-white/65',
-        'backdrop-blur-2xl',
-        'border-gray-200/60',
-        'shadow-[0_8px_24px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.8)]',
+        'bg-[rgba(255,255,255,0.18)]',
+        'backdrop-blur-[30px]',
+        'backdrop-saturate-[180%]',
+        'border-[rgba(255,255,255,0.35)]',
+        'shadow-[0_8px_32px_rgba(15,23,42,0.08),0_2px_8px_rgba(15,23,42,0.04),inset_0_1px_0_rgba(255,255,255,0.45)]',
         'translate-y-0'
       );
       navbarInner?.classList.remove('border-transparent', 'bg-transparent', '-translate-y-1');
@@ -203,10 +204,11 @@ const navLinks = [
 
       navbarInner?.classList.add('border-transparent', 'bg-transparent');
       navbarInner?.classList.remove(
-        'bg-white/65',
-        'backdrop-blur-2xl',
-        'border-gray-200/60',
-        'shadow-[0_8px_24px_rgba(0,0,0,0.08),inset_0_1px_0_rgba(255,255,255,0.8)]',
+        'bg-[rgba(255,255,255,0.18)]',
+        'backdrop-blur-[30px]',
+        'backdrop-saturate-[180%]',
+        'border-[rgba(255,255,255,0.35)]',
+        'shadow-[0_8px_32px_rgba(15,23,42,0.08),0_2px_8px_rgba(15,23,42,0.04),inset_0_1px_0_rgba(255,255,255,0.45)]',
         'translate-y-0'
       );
     }
