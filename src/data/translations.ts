@@ -21,6 +21,8 @@ export interface TranslationSchema {
   heroCtaProjects: string;
   heroCtaCv: string;
   heroAriaGithub: string;
+  heroAriaLinkedin: string;
+  heroLinkedinSubtle: string;
 
   // About
   aboutEyebrow: string;
@@ -84,8 +86,11 @@ export interface TranslationSchema {
   contactEmailLabel: string;
   contactPhoneLabel: string;
   contactGithubLabel: string;
+  contactLinkedinLabel: string;
+  contactLinkedinSubtitle: string;
   contactSendWhatsapp: string;
   contactVisitGithub: string;
+  contactVisitLinkedin: string;
   contactFormTitle: string;
   contactNameLabel: string;
   contactNamePlaceholder: string;
@@ -99,6 +104,7 @@ export interface TranslationSchema {
   // Footer
   footerCopyright: string;
   footerBackToTop: string;
+  footerAriaLinkedin: string;
 }
 
 export const translations: Record<'en' | 'id', TranslationSchema> = {
@@ -125,6 +131,8 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     heroCtaProjects: "View Projects",
     heroCtaCv: "Download CV",
     heroAriaGithub: "GitHub profile of Mohamad Arifin Hasbi",
+    heroAriaLinkedin: "LinkedIn profile of Mohamad Arifin Hasbi",
+    heroLinkedinSubtle: "Connect with me on LinkedIn for networking and collaboration.",
 
     // About
     aboutEyebrow: "About Me",
@@ -188,8 +196,11 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     contactEmailLabel: "Email",
     contactPhoneLabel: "WhatsApp",
     contactGithubLabel: "GitHub",
+    contactLinkedinLabel: "LinkedIn",
+    contactLinkedinSubtitle: "Let's connect professionally.",
     contactSendWhatsapp: "Send Message →",
     contactVisitGithub: "Visit Profile →",
+    contactVisitLinkedin: "View Profile →",
     contactFormTitle: "Send a Direct Message",
     contactNameLabel: "Full Name",
     contactNamePlaceholder: "Enter your full name",
@@ -202,7 +213,8 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
 
     // Footer
     footerCopyright: "Mohamad Arifin Hasbi. All Rights Reserved.",
-    footerBackToTop: "Back to top of page"
+    footerBackToTop: "Back to top of page",
+    footerAriaLinkedin: "LinkedIn profile of Mohamad Arifin Hasbi"
   },
   id: {
     metaTitle: "Mohamad Arifin Hasbi — Full Stack Developer & Mahasiswa IT",
@@ -227,6 +239,8 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     heroCtaProjects: "Lihat Proyek",
     heroCtaCv: "Download CV",
     heroAriaGithub: "Profil GitHub Mohamad Arifin Hasbi",
+    heroAriaLinkedin: "Profil LinkedIn Mohamad Arifin Hasbi",
+    heroLinkedinSubtle: "Hubungi saya di LinkedIn untuk berjejaring dan berkolaborasi.",
 
     // About
     aboutEyebrow: "Tentang Saya",
@@ -290,8 +304,11 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     contactEmailLabel: "Email",
     contactPhoneLabel: "WhatsApp",
     contactGithubLabel: "GitHub",
+    contactLinkedinLabel: "LinkedIn",
+    contactLinkedinSubtitle: "Mari terhubung secara profesional.",
     contactSendWhatsapp: "Kirim Pesan →",
     contactVisitGithub: "Kunjungi Profil →",
+    contactVisitLinkedin: "Kunjungi Profil →",
     contactFormTitle: "Kirim Pesan Langsung",
     contactNameLabel: "Nama Lengkap",
     contactNamePlaceholder: "Masukkan nama Anda",
@@ -304,6 +321,7 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
 
     // Footer
     footerCopyright: "Mohamad Arifin Hasbi. Hak Cipta Dilindungi Undang-Undang.",
-    footerBackToTop: "Kembali ke bagian paling atas halaman"
+    footerBackToTop: "Kembali ke bagian paling atas halaman",
+    footerAriaLinkedin: "Profil LinkedIn Mohamad Arifin Hasbi"
   }
 };

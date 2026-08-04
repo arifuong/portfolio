@@ -28,6 +28,8 @@ const translations = {
     heroCtaProjects: "View Projects",
     heroCtaCv: "Download CV",
     heroAriaGithub: "GitHub profile of Mohamad Arifin Hasbi",
+    heroAriaLinkedin: "LinkedIn profile of Mohamad Arifin Hasbi",
+    heroLinkedinSubtle: "Connect with me on LinkedIn for networking and collaboration.",
 
     // About
     aboutEyebrow: "About Me",
@@ -91,8 +93,11 @@ const translations = {
     contactEmailLabel: "Email",
     contactPhoneLabel: "WhatsApp",
     contactGithubLabel: "GitHub",
+    contactLinkedinLabel: "LinkedIn",
+    contactLinkedinSubtitle: "Let's connect professionally.",
     contactSendWhatsapp: "Send Message →",
     contactVisitGithub: "Visit Profile →",
+    contactVisitLinkedin: "View Profile →",
     contactFormTitle: "Send a Direct Message",
     contactNameLabel: "Full Name",
     contactNamePlaceholder: "Enter your full name",
@@ -105,7 +110,8 @@ const translations = {
 
     // Footer
     footerCopyright: "Mohamad Arifin Hasbi. All Rights Reserved.",
-    footerBackToTop: "Back to top of page"
+    footerBackToTop: "Back to top of page",
+    footerAriaLinkedin: "LinkedIn profile of Mohamad Arifin Hasbi"
   },
   id: {
     metaTitle: "Mohamad Arifin Hasbi — Full Stack Developer & Mahasiswa IT",
@@ -130,6 +136,8 @@ const translations = {
     heroCtaProjects: "Lihat Proyek",
     heroCtaCv: "Download CV",
     heroAriaGithub: "Profil GitHub Mohamad Arifin Hasbi",
+    heroAriaLinkedin: "Profil LinkedIn Mohamad Arifin Hasbi",
+    heroLinkedinSubtle: "Hubungi saya di LinkedIn untuk berjejaring dan berkolaborasi.",
 
     // About
     aboutEyebrow: "Tentang Saya",
@@ -193,8 +201,11 @@ const translations = {
     contactEmailLabel: "Email",
     contactPhoneLabel: "WhatsApp",
     contactGithubLabel: "GitHub",
+    contactLinkedinLabel: "LinkedIn",
+    contactLinkedinSubtitle: "Mari terhubung secara profesional.",
     contactSendWhatsapp: "Kirim Pesan →",
     contactVisitGithub: "Kunjungi Profil →",
+    contactVisitLinkedin: "Kunjungi Profil →",
     contactFormTitle: "Kirim Pesan Langsung",
     contactNameLabel: "Nama Lengkap",
     contactNamePlaceholder: "Masukkan nama Anda",
@@ -207,7 +218,8 @@ const translations = {
 
     // Footer
     footerCopyright: "Mohamad Arifin Hasbi. Hak Cipta Dilindungi Undang-Undang.",
-    footerBackToTop: "Kembali ke bagian paling atas halaman"
+    footerBackToTop: "Kembali ke bagian paling atas halaman",
+    footerAriaLinkedin: "Profil LinkedIn Mohamad Arifin Hasbi"
   }
 };
 
