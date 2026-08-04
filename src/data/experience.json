@@ -1,0 +1,26 @@
+[
+  {
+    "role": "Enumerator",
+    "company": "Badan Pusat Statistik (BPS)",
+    "project": "Registrasi Sosial Ekonomi (Regsosek)",
+    "period": "2022 – 2023",
+    "description": "Melakukan pendataan sosial ekonomi masyarakat melalui wawancara langsung door-to-door, input data ke sistem digital BPS, serta verifikasi dan validasi data lapangan.",
+    "type": "Contract"
+  },
+  {
+    "role": "Enumerator",
+    "company": "Kementerian Koperasi & UKM RI",
+    "project": "Pendataan Koperasi Nasional",
+    "period": "2023",
+    "description": "Pendataan dan verifikasi data koperasi secara langsung ke unit usaha, meliputi profil koperasi, jumlah anggota, aset, dan volume usaha untuk database nasional.",
+    "type": "Contract"
+  },
+  {
+    "role": "Operator",
+    "company": "SPBU",
+    "project": "",
+    "period": "2022 – 2023",
+    "description": "Melayani pelanggan dalam pengisian bahan bakar, mengelola transaksi harian, dan memastikan operasional shift berjalan sesuai standar keselamatan.",
+    "type": "Part-time"
+  }
+]

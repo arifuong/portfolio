@@ -1,0 +1,26 @@
+[
+  {
+    "id": "tracer-study",
+    "title": "Sistem Informasi Tracer Study Alumni",
+    "description": "Aplikasi web untuk melacak dan menganalisis data alumni, termasuk status pekerjaan, relevansi pendidikan, dan feedback untuk peningkatan kurikulum. Dilengkapi dashboard admin dan fitur export laporan.",
+    "techStack": ["Spring Boot", "React", "MySQL", "JWT"],
+    "github": "https://github.com/arifuong/tracer_study",
+    "category": "Full Stack"
+  },
+  {
+    "id": "ketupat-cinta",
+    "title": "Sistem Pre-Order Ketupat Cinta",
+    "description": "Platform e-commerce sederhana untuk mengelola pre-order produk makanan, dengan fitur manajemen pesanan, perhitungan harga otomatis, dan notifikasi status pesanan ke pelanggan.",
+    "techStack": ["Laravel", "PHP", "MySQL", "Tailwind CSS"],
+    "github": "https://github.com/arifuong/ketupat_cinta",
+    "category": "Full Stack"
+  },
+  {
+    "id": "sistem-pakar-kucing",
+    "title": "Sistem Pakar Diagnosa Penyakit Kucing",
+    "description": "Aplikasi berbasis sistem pakar menggunakan metode Certainty Factor untuk mendiagnosa penyakit pada kucing berdasarkan gejala yang dipilih pengguna, dilengkapi basis pengetahuan dari pakar hewan.",
+    "techStack": ["CodeIgniter", "PHP", "MySQL", "Certainty Factor"],
+    "github": "https://github.com/arifuong/sistem-pakar_diagnosa-penyakit-kucing-.git",
+    "category": "AI / Expert System"
+  }
+]
