@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = "Mohamad Arifin Hasbi — Full Stack Developer",
-  description = "Portfolio profesional Mohamad Arifin Hasbi, Full Stack Developer dan mahasiswa Teknik Informatika STMIK Mardira Indonesia (IPK 3.64). Berpengalaman dengan Laravel, Spring Boot, React, dan MySQL."
+  title = "Mohamad Arifin Hasbi — Full Stack Developer & IT Student",
+  description = "Official portfolio of Mohamad Arifin Hasbi, Full Stack Developer and Informatics Engineering student at STMIK Mardira Indonesia (GPA 3.64). Skilled in Spring Boot, Laravel, React, and MySQL."
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://arifin-hasbi.vercel.app');
@@ -40,7 +40,7 @@ const personSchema = {
 ---
 
 <!DOCTYPE html>
-<html lang="id" class="scroll-smooth">
+<html lang="en" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
@@ -74,6 +74,10 @@ const personSchema = {
 
   <!-- Structured Data JSON-LD -->
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
+
+  <!-- i18n Scripts -->
+  <script is:inline src="/js/i18n.js"></script>
+  <script is:inline src="/js/main.js"></script>
 </head>
 <body class="bg-[#FFFFFF] text-[#4B5563] antialiased selection:bg-[#0047FF] selection:text-white min-h-screen flex flex-col">
   <slot />
