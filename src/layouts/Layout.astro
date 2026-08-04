@@ -103,7 +103,7 @@ const personSchema = {
         }
         requestAnimationFrame(raf);
 
-        // GSAP ScrollTrigger integration for Desktop velocity scroll & stacked pages
+        // GSAP ScrollTrigger integration for Desktop stacked page pin & scrub
         window.addEventListener('load', async () => {
           const { gsap } = await import('gsap');
           const { ScrollTrigger } = await import('gsap/ScrollTrigger');
@@ -114,6 +114,40 @@ const personSchema = {
             lenis.raf(time * 1000);
           });
           gsap.ticker.lagSmoothing(0);
+
+          // GSAP ScrollTrigger Stacked Full-Page Pins & Scrub Sliders
+          const sections = gsap.utils.toArray<HTMLElement>('.stacked-page');
+
+          sections.forEach((section, i) => {
+            if (i === 0) return;
+
+            const prevSection = sections[i - 1];
+
+            // Pin the previous section while current section slides over it
+            ScrollTrigger.create({
+              trigger: prevSection,
+              start: 'top top',
+              end: '+=100%',
+              pin: true,
+              pinSpacing: false,
+            });
+
+            // Slide current section from yPercent: 100 -> yPercent: 0
+            gsap.fromTo(section, 
+              { yPercent: 100 }, 
+              {
+                yPercent: 0,
+                ease: 'none',
+                scrollTrigger: {
+                  trigger: section,
+                  start: 'top bottom',
+                  end: 'top top',
+                  scrub: true,
+                  invalidateOnRefresh: true,
+                }
+              }
+            );
+          });
 
           // Velocity Scroll effect on background accent elements (Desktop only)
           gsap.utils.toArray<HTMLElement>('.velocity-bg').forEach((el) => {

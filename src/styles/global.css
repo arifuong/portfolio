@@ -122,10 +122,9 @@ h1, h2, h3, h4, h5, h6 {
   transform: translate3d(0, 0, 0);
 }
 
-/* ===== Stacked Full-Page Section Styling ===== */
+/* ===== GSAP Stacked Full-Page Section Styling ===== */
 .stacked-page {
-  position: sticky;
-  top: 0;
+  position: relative;
   width: 100%;
   min-height: 100vh;
   overflow: hidden;
