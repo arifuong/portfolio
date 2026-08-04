@@ -88,7 +88,7 @@ const personSchema = {
     const isDesktop = window.innerWidth >= 768;
     const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
 
-    // Initialize Lenis ONLY on Desktop (>=768px). Native touch scrolling on Mobile (<768px).
+    // Initialize Lenis & GSAP Master Timeline on Desktop (>=768px)
     if (isDesktop && !isReducedMotion) {
       import('lenis').then(({ default: Lenis }) => {
         const lenis = new Lenis({
@@ -103,7 +103,7 @@ const personSchema = {
         }
         requestAnimationFrame(raf);
 
-        // GSAP ScrollTrigger integration for Desktop stacked page pin & scrub
+        // Single Master GSAP Timeline for Stacked Page Cover Transitions
         window.addEventListener('load', async () => {
           const { gsap } = await import('gsap');
           const { ScrollTrigger } = await import('gsap/ScrollTrigger');
@@ -115,39 +115,37 @@ const personSchema = {
           });
           gsap.ticker.lagSmoothing(0);
 
-          // GSAP ScrollTrigger Stacked Full-Page Pins & Scrub Sliders
+          const mainContent = document.getElementById('main-content');
           const sections = gsap.utils.toArray<HTMLElement>('.stacked-page');
 
-          sections.forEach((section, i) => {
-            if (i === 0) return;
-
-            const prevSection = sections[i - 1];
-
-            // Pin the previous section while current section slides over it
-            ScrollTrigger.create({
-              trigger: prevSection,
-              start: 'top top',
-              end: '+=100%',
-              pin: true,
-              pinSpacing: false,
+          if (mainContent && sections.length > 1) {
+            // Master Timeline pinning main-content container
+            const masterTl = gsap.timeline({
+              scrollTrigger: {
+                trigger: mainContent,
+                start: 'top top',
+                end: `+=${(sections.length - 1) * 100}%`,
+                scrub: 1, // Fluid 1-second scrub
+                pin: true,
+                anticipatePin: 1,
+                invalidateOnRefresh: true,
+              }
             });
 
-            // Slide current section from yPercent: 100 -> yPercent: 0
-            gsap.fromTo(section, 
-              { yPercent: 100 }, 
-              {
+            sections.forEach((section, i) => {
+              if (i === 0) return; // Hero stays anchored as base page
+
+              // Set initial position completely below viewport
+              gsap.set(section, { yPercent: 100 });
+
+              // Slide section upward to cover the previous page
+              masterTl.to(section, {
                 yPercent: 0,
                 ease: 'none',
-                scrollTrigger: {
-                  trigger: section,
-                  start: 'top bottom',
-                  end: 'top top',
-                  scrub: true,
-                  invalidateOnRefresh: true,
-                }
-              }
-            );
-          });
+                duration: 1,
+              });
+            });
+          }
 
           // Velocity Scroll effect on background accent elements (Desktop only)
           gsap.utils.toArray<HTMLElement>('.velocity-bg').forEach((el) => {
