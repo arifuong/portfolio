@@ -1,7 +1,26 @@
 @import "tailwindcss";
 
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --text-primary: #0F172A;
+  --text-secondary: #475569;
+  --text-muted: #64748B;
+}
+
+.dark {
+  --text-primary: #FFFFFF;
+  --text-secondary: #E2E8F0;
+  --text-muted: #CBD5E1;
+}
+
 /* ===== DESIGN SYSTEM: Tailwind v4 Theme Tokens ===== */
 @theme {
+  /* Typography Variables */
+  --color-text-primary: var(--text-primary);
+  --color-text-secondary: var(--text-secondary);
+  --color-text-muted: var(--text-muted);
+
   /* Color Palette */
   --color-primary: #000000;
   --color-secondary: #0047FF;
@@ -44,7 +63,7 @@ body {
 
 body {
   font-family: var(--font-body);
-  color: var(--color-neutral-600);
+  color: var(--text-secondary);
   background-color: var(--color-neutral-50);
   line-height: 1.6;
   position: relative;
@@ -53,7 +72,7 @@ body {
 /* ===== Typography ===== */
 h1, h2, h3, h4, h5, h6 {
   font-family: var(--font-display);
-  color: var(--color-primary);
+  color: var(--text-primary);
   line-height: 1.1;
   letter-spacing: -0.02em;
 }
@@ -87,4 +106,170 @@ h1, h2, h3, h4, h5, h6 {
 
 ::-webkit-scrollbar-thumb:hover {
   background: var(--color-neutral-500);
+}
+
+/* ===== Premium Theme Utilities & Transitions ===== */
+
+/* Smooth transitions for all visual theme changes */
+html,
+body,
+header,
+section,
+footer,
+article,
+div,
+button,
+a,
+span,
+svg {
+  transition-property: background-color, color, border-color, fill, stroke, box-shadow, backdrop-filter;
+  transition-duration: 300ms;
+  transition-timing-function: cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+/* Glassmorphism Card Utility */
+.glass-card {
+  background-color: rgba(255, 255, 255, 0.70);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(0, 0, 0, 0.06);
+  box-shadow: 0 4px 12px rgba(0, 0, 0, 0.02);
+}
+
+html.dark .glass-card {
+  background: rgba(30, 41, 59, 0.75);
+  backdrop-filter: blur(16px);
+  border: 1px solid rgba(255, 255, 255, 0.08);
+  box-shadow: 0 8px 24px rgba(0, 0, 0, 0.18);
+}
+
+/* ===== Premium Language Switcher Styling ===== */
+.lang-switcher-container {
+  display: inline-flex;
+  align-items: center;
+  padding: 0.25rem;
+  border-radius: 9999px;
+  background-color: rgba(243, 244, 246, 0.60);
+  backdrop-filter: blur(8px);
+  border: 1px solid rgba(229, 231, 235, 0.60);
+  transition: all 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.dark .lang-switcher-container {
+  background-color: #0F172A;
+  border: 1px solid rgba(255, 255, 255, 0.08);
+}
+
+.lang-switcher-btn {
+  background-color: transparent;
+  color: var(--text-secondary);
+  cursor: pointer;
+  transition: all 250ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+.lang-switcher-btn:hover {
+  background-color: rgba(0, 0, 0, 0.04);
+  color: var(--text-primary);
+}
+
+.lang-switcher-btn.active {
+  background-color: #0047FF;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(0, 71, 255, 0.20);
+}
+
+html.dark .lang-switcher-btn {
+  color: #94A3B8;
+  background-color: transparent;
+}
+
+html.dark .lang-switcher-btn:hover {
+  background-color: rgba(255, 255, 255, 0.06);
+  color: #FFFFFF;
+}
+
+html.dark .lang-switcher-btn.active {
+  background-color: #2563EB;
+  color: #FFFFFF;
+  box-shadow: 0 4px 12px rgba(37, 99, 235, 0.35);
+}
+
+/* Premium Sun & Moon Icon transitions inside the theme toggle button */
+.theme-icon-sun {
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+  transform-origin: center;
+  transition: opacity 300ms cubic-bezier(0.22, 1, 0.36, 1), transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+.theme-icon-moon {
+  transform: rotate(-90deg) scale(0.5);
+  opacity: 0;
+  transform-origin: center;
+  transition: opacity 300ms cubic-bezier(0.22, 1, 0.36, 1), transform 300ms cubic-bezier(0.22, 1, 0.36, 1);
+}
+
+html.dark .theme-icon-sun {
+  transform: rotate(90deg) scale(0.5);
+  opacity: 0;
+}
+html.dark .theme-icon-moon {
+  transform: rotate(0deg) scale(1);
+  opacity: 1;
+}
+
+/* ===== Media Protection ===== */
+
+/* Images cannot be dragged, selected, long-pressed or invoked as native media */
+img {
+  -webkit-user-drag: none;
+  -khtml-user-drag: none;
+  -moz-user-select: none;
+  -webkit-user-select: none;
+  -webkit-touch-callout: none;
+  user-select: none;
+}
+
+/* Transparent overlay intercepts direct interaction with the image below it */
+.media-shield {
+  position: absolute;
+  inset: 0;
+  z-index: 1;
+  background: transparent;
+  cursor: default;
+  touch-action: manipulation;
+  -webkit-tap-highlight-color: transparent;
+}
+
+/* Subtle, responsive, non-interactive watermark badge */
+.media-watermark {
+  pointer-events: none;
+  position: absolute;
+  right: 10px;
+  bottom: 10px;
+  z-index: 2;
+  display: inline-flex;
+  align-items: center;
+  max-width: calc(100% - 20px);
+  padding: 4px 10px;
+  border-radius: 9999px;
+  font-family: var(--font-display), system-ui, sans-serif;
+  font-size: clamp(0.55rem, 1.4vw, 0.68rem);
+  font-weight: 600;
+  letter-spacing: 0.06em;
+  line-height: 1.2;
+  white-space: nowrap;
+  overflow: hidden;
+  text-overflow: ellipsis;
+  color: rgba(255, 255, 255, 0.88);
+  background: rgba(9, 15, 30, 0.32);
+  backdrop-filter: blur(4px);
+  -webkit-backdrop-filter: blur(4px);
+  border: 1px solid rgba(255, 255, 255, 0.18);
+}
+
+@media (max-width: 640px) {
+  .media-watermark {
+    right: 8px;
+    bottom: 8px;
+    padding: 3px 8px;
+  }
 }

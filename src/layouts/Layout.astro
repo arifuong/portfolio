@@ -7,8 +7,8 @@ interface Props {
 }
 
 const {
-  title = "Mohamad Arifin Hasbi — Full Stack Developer & IT Student",
-  description = "Official portfolio of Mohamad Arifin Hasbi, Full Stack Developer and Informatics Engineering student at STMIK Mardira Indonesia (GPA 3.64). Skilled in Spring Boot, Laravel, React, and MySQL."
+  title = "Mohamad Arifin Hasbi — Full Stack Developer & Mahasiswa Teknik Informatika",
+  description = "Portofolio resmi Mohamad Arifin Hasbi, Full Stack Developer dan mahasiswa Teknik Informatika STMIK Mardira Indonesia (IPK 3.64). Menguasai Spring Boot, Laravel, React, dan MySQL."
 } = Astro.props;
 
 const canonicalURL = new URL(Astro.url.pathname, Astro.site || 'https://arifin-hasbi.vercel.app');
@@ -34,19 +34,44 @@ const personSchema = {
     "Full Stack Development",
     "Java", "Spring Boot",
     "PHP", "Laravel", "CodeIgniter",
-    "JavaScript", "TypeScript", "React", "Astro",
-    "MySQL", "PostgreSQL"
+    "JavaScript", "TypeScript", "React",
+    "MySQL"
   ]
 };
 ---
 
 <!DOCTYPE html>
-<html lang="en" class="scroll-smooth">
+<html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/svg+xml" href="/favicon.svg" />
+  <link rel="icon" type="image/webp" href="/profile.webp" />
   <meta name="generator" content={Astro.generator} />
+  <meta name="theme-color" content="#ffffff" id="theme-meta" />
+
+  <!-- Anti-Flicker Inline Theme Script (Executes before initial DOM render) -->
+  <script is:inline>
+    (function() {
+      try {
+        var savedTheme = localStorage.getItem('theme');
+        var isDark;
+        if (savedTheme) {
+          isDark = savedTheme === 'dark';
+        } else {
+          isDark = window.matchMedia('(prefers-color-scheme: dark)').matches;
+        }
+        if (isDark) {
+          document.documentElement.classList.add('dark');
+        } else {
+          document.documentElement.classList.remove('dark');
+        }
+        var meta = document.getElementById('theme-meta');
+        if (meta) {
+          meta.setAttribute('content', isDark ? '#0B1120' : '#ffffff');
+        }
+      } catch (e) {}
+    })();
+  </script>
 
   <!-- Primary Meta Tags -->
   <title>{title}</title>
@@ -76,11 +101,13 @@ const personSchema = {
   <!-- Structured Data JSON-LD -->
   <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
 
-  <!-- i18n Scripts -->
+  <!-- i18n & Theme Scripts -->
+  <script is:inline src="/js/theme.js"></script>
   <script is:inline src="/js/i18n.js"></script>
   <script is:inline src="/js/main.js"></script>
+  <script is:inline src="/js/protection.js"></script>
 </head>
-<body class="bg-[#FFFFFF] text-[#4B5563] antialiased selection:bg-[#0047FF] selection:text-white min-h-screen flex flex-col w-full max-w-full overflow-x-hidden">
+<body class="bg-[#FFFFFF] dark:bg-[#0B1120] text-[#4B5563] dark:text-[#CBD5E1] antialiased selection:bg-[#0047FF] dark:selection:bg-[#60A5FA] selection:text-white min-h-screen flex flex-col w-full max-w-full overflow-x-hidden transition-colors duration-300">
   <slot />
 </body>
 </html>

@@ -1,10 +1,10 @@
 ---
 const navLinks = [
-  { href: '#about', labelKey: 'navAbout', defaultLabel: 'About', id: 'about' },
-  { href: '#skills', labelKey: 'navSkills', defaultLabel: 'Skills', id: 'skills' },
-  { href: '#projects', labelKey: 'navProjects', defaultLabel: 'Projects', id: 'projects' },
-  { href: '#experience', labelKey: 'navExperience', defaultLabel: 'Experience', id: 'experience' },
-  { href: '#contact', labelKey: 'navContact', defaultLabel: 'Contact', id: 'contact' },
+  { href: '#about', labelKey: 'navAbout', defaultLabel: 'Tentang', id: 'about' },
+  { href: '#skills', labelKey: 'navSkills', defaultLabel: 'Keahlian', id: 'skills' },
+  { href: '#projects', labelKey: 'navProjects', defaultLabel: 'Proyek', id: 'projects' },
+  { href: '#experience', labelKey: 'navExperience', defaultLabel: 'Pengalaman', id: 'experience' },
+  { href: '#contact', labelKey: 'navContact', defaultLabel: 'Kontak', id: 'contact' },
 ];
 ---
 
@@ -20,23 +20,23 @@ const navLinks = [
     <!-- Left: Brand Logo -->
     <a 
       href="#" 
-      class="font-display font-bold text-lg sm:text-xl text-[#000000] tracking-tight hover:text-[#0047FF] transition-colors focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none rounded-md px-1 py-0.5 shrink-0"
+      class="font-display font-bold text-lg sm:text-xl text-text-primary tracking-tight hover:text-[#0047FF] dark:hover:text-[#60A5FA] transition-colors focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none rounded-md px-1 py-0.5 shrink-0"
       data-i18n-aria="navAriaHome"
-      aria-label="Back to top of Mohamad Arifin Hasbi page"
+      aria-label="Kembali ke bagian atas halaman Mohamad Arifin Hasbi"
     >
-      Arifin Hasbi<span class="text-[#0047FF]">.</span>
+      Arifin Hasbi<span class="text-[#0047FF] dark:text-[#60A5FA]">.</span>
     </a>
 
     <!-- Center: Navigation Links (Desktop) -->
     <nav class="hidden md:flex items-center justify-center" aria-label="Navigasi Utama">
-      <ul class="flex items-center gap-1 text-sm font-medium p-1 bg-gray-100/40 backdrop-blur-xs rounded-full border border-gray-200/40">
+      <ul class="flex items-center gap-1 text-sm font-medium p-1 bg-gray-100/40 dark:bg-white/5 backdrop-blur-xs rounded-full border border-gray-200/40 dark:border-white/10">
         {navLinks.map((link) => (
           <li>
             <a 
               href={link.href} 
               data-i18n={link.labelKey}
               data-nav-section={link.id}
-              class="nav-link-item inline-flex items-center px-3.5 py-1.5 rounded-full text-[#4B5563] hover:text-[#000000] hover:bg-white/80 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none"
+              class="nav-link-item inline-flex items-center px-3.5 py-1.5 rounded-full text-text-secondary hover:text-text-primary dark:hover:text-text-primary hover:bg-white/80 dark:hover:bg-white/10 transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none"
             >
               {link.defaultLabel}
             </a>
@@ -45,73 +45,101 @@ const navLinks = [
       </ul>
     </nav>
 
-    <!-- Right Controls: Language Switcher, GitHub, CV -->
+    <!-- Right Controls: Language Switcher, Theme Switcher, GitHub, CV -->
     <div class="hidden md:flex items-center gap-3 shrink-0">
       <!-- Glassmorphism Language Switcher Pill -->
-      <div class="flex items-center p-1 rounded-full bg-gray-100/60 backdrop-blur border border-gray-200/60 text-xs font-semibold shadow-xs">
+      <div class="lang-switcher-container text-xs font-semibold">
         <button
           type="button"
           data-lang="en"
-          class="lang-switcher-btn px-2.5 py-1 rounded-full transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none bg-[#0047FF] text-white shadow-xs"
-          aria-label="Switch language to English"
+          class="lang-switcher-btn active px-2.5 py-1 rounded-full focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none"
+          aria-label="Ganti bahasa ke Inggris"
         >
           EN
         </button>
-        <span class="text-gray-300 px-0.5 select-none">|</span>
+        <span class="text-gray-350 dark:text-gray-800 px-0.5 select-none">|</span>
         <button
           type="button"
           data-lang="id"
-          class="lang-switcher-btn px-2.5 py-1 rounded-full transition-all duration-200 focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none text-[#4B5563] hover:text-[#000000]"
+          class="lang-switcher-btn px-2.5 py-1 rounded-full focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none"
           aria-label="Ubah bahasa ke Bahasa Indonesia"
         >
           ID
         </button>
       </div>
 
+      <!-- Glassmorphism Dark Mode Toggle Button (Desktop) -->
+      <button
+        type="button"
+        class="theme-toggle-btn relative w-9 h-9 flex items-center justify-center text-text-secondary hover:text-[#0047FF] dark:hover:text-[#60A5FA] bg-white/14 dark:bg-[rgba(15,23,42,0.55)] hover:bg-white/30 dark:hover:bg-white/10 rounded-full border border-gray-200/60 dark:border-white/10 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none shadow-xs overflow-hidden"
+        aria-label="Ubah Mode Gelap"
+      >
+        <!-- Sun Icon (Active in Light Mode) -->
+        <svg class="theme-icon-sun absolute w-4 h-4 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        <!-- Moon Icon (Active in Dark Mode) -->
+        <svg class="theme-icon-moon absolute w-4 h-4 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
+
       <!-- GitHub Icon Link -->
       <a 
         href="https://github.com/arifuong" 
         target="_blank" 
         rel="noopener noreferrer"
-        class="p-2 text-[#4B5563] hover:text-[#0047FF] hover:bg-white/70 rounded-full border border-gray-200/60 transition-colors focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none"
+        class="p-2 text-text-secondary hover:text-[#0047FF] dark:hover:text-[#60A5FA] hover:bg-white/70 dark:hover:bg-white/10 rounded-full border border-gray-200/60 dark:border-white/8 transition-colors focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none"
         data-i18n-aria="heroAriaGithub"
-        aria-label="GitHub Profile"
+        aria-label="Profil GitHub Mohamad Arifin Hasbi"
       >
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="currentColor"><path d="M12 0C5.37 0 0 5.37 0 12c0 5.31 3.435 9.795 8.205 11.385.6.105.825-.255.825-.57 0-.285-.015-1.23-.015-2.235-3.015.555-3.795-.735-4.035-1.41-.135-.345-.72-1.41-1.23-1.695-.42-.225-1.02-.78-.015-.795.945-.015 1.62.87 1.845 1.23 1.08 1.815 2.805 1.305 3.495.99.105-.78.42-1.305.765-1.605-2.67-.3-5.46-1.335-5.46-5.925 0-1.305.465-2.385 1.23-3.225-.12-.3-.54-1.53.12-3.18 0 0 1.005-.315 3.3 1.23.96-.27 1.98-.405 3-.405s2.04.135 3 .405c2.295-1.56 3.3-1.23 3.3-1.23.66 1.65.24 2.88.12 3.18.765.84 1.23 1.905 1.23 3.225 0 4.605-2.805 5.625-5.475 5.925.435.375.81 1.095.81 2.22 0 1.605-.015 2.895-.015 3.3 0 .315.225.69.825.57A12.02 12.02 0 0024 12c0-6.63-5.37-12-12-12z"/></svg>
       </a>
 
       <!-- Download CV Button -->
       <a 
-        href="/CV_Mohamad_Arifin_Hasbi.pdf" 
+        href="/cv/Mohamad-Arifin-Hasbi-CV.pdf" 
+        download="Mohamad-Arifin-Hasbi-CV.pdf"
         target="_blank" 
         rel="noopener noreferrer"
-        class="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-[#000000] hover:bg-[#0047FF] transition-colors rounded-full focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none shadow-xs"
+        class="inline-flex items-center gap-1.5 px-4 py-2 text-xs font-semibold uppercase tracking-wider text-white bg-[#000000] hover:bg-[#0047FF] dark:bg-[#3B82F6] dark:hover:bg-[#2563EB] transition-colors rounded-full focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none shadow-xs"
       >
         <span data-i18n="navCvBtn">Download CV</span>
         <svg class="w-3.5 h-3.5" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
       </a>
     </div>
 
-    <!-- Mobile Hamburger Button -->
-    <button
-      id="mobile-menu-btn"
-      type="button"
-      class="md:hidden p-2 text-[#1F2937] hover:text-[#0047FF] focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none rounded-lg"
-      aria-expanded="false"
-      aria-controls="mobile-menu"
-      data-i18n-aria="navAriaMenuOpen"
-      aria-label="Open navigation menu"
-    >
-      <svg id="icon-menu" class="w-6 h-6 block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
-      <svg id="icon-close" class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
-    </button>
+    <!-- Mobile Controls Right (Theme Toggle + Mobile Menu Button) -->
+    <div class="flex items-center gap-2 md:hidden">
+      <!-- Mobile Theme Toggle Button -->
+      <button
+        type="button"
+        class="theme-toggle-btn relative w-9 h-9 flex items-center justify-center text-text-secondary hover:text-[#0047FF] dark:hover:text-[#60A5FA] bg-white/14 dark:bg-[rgba(15,23,42,0.55)] hover:bg-white/30 dark:hover:bg-white/10 rounded-full border border-gray-200/60 dark:border-white/10 transition-all duration-300 focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none shadow-xs overflow-hidden"
+        aria-label="Ubah Mode Gelap"
+      >
+        <!-- Sun Icon (Active in Light Mode) -->
+        <svg class="theme-icon-sun absolute w-5 h-5 text-amber-500" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><circle cx="12" cy="12" r="4"/><path d="M12 2v2"/><path d="M12 20v2"/><path d="m4.93 4.93 1.41 1.41"/><path d="m17.66 17.66 1.41 1.41"/><path d="M2 12h2"/><path d="M20 12h2"/><path d="m6.34 17.66-1.41 1.41"/><path d="m19.07 4.93-1.41 1.41"/></svg>
+        <!-- Moon Icon (Active in Dark Mode) -->
+        <svg class="theme-icon-moon absolute w-5 h-5 text-blue-400" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M12 3a6 6 0 0 0 9 9 9 9 0 1 1-9-9Z"/></svg>
+      </button>
+
+      <!-- Mobile Hamburger Button -->
+      <button
+        id="mobile-menu-btn"
+        type="button"
+        class="p-2 text-text-primary hover:text-[#0047FF] dark:hover:text-[#60A5FA] focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none rounded-lg"
+        aria-expanded="false"
+        aria-controls="mobile-menu"
+        data-i18n-aria="navAriaMenuOpen"
+        aria-label="Buka menu navigasi"
+      >
+        <svg id="icon-menu" class="w-6 h-6 block" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><line x1="4" x2="20" y1="12" y2="12"/><line x1="4" x2="20" y1="6" y2="6"/><line x1="4" x2="20" y1="18" y2="18"/></svg>
+        <svg id="icon-close" class="w-6 h-6 hidden" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 6 6 18"/><path d="m6 6 12 12"/></svg>
+      </button>
+    </div>
   </header>
 </div>
 
-<!-- Mobile Dropdown Menu (z-[9999] Frosted Glass) -->
+<!-- Mobile Dropdown Menu (z-[9999] Frosted Glass Light & Dark) -->
 <div 
   id="mobile-menu" 
-  class="hidden md:hidden fixed top-20 left-3 right-3 z-[9999] border border-[rgba(255,255,255,0.4)] bg-[rgba(255,255,255,0.75)] backdrop-blur-[30px] backdrop-saturate-[180%] px-5 pt-3 pb-6 rounded-3xl shadow-[0_12px_36px_rgba(15,23,42,0.1),inset_0_1px_0_rgba(255,255,255,0.5)] transition-all duration-300"
+  class="hidden md:hidden fixed top-20 left-3 right-3 z-[9999] border border-[rgba(255,255,255,0.4)] dark:border-white/15 bg-[rgba(255,255,255,0.85)] dark:bg-[rgba(15,23,42,0.92)] backdrop-blur-[30px] backdrop-saturate-[180%] px-5 pt-3 pb-6 rounded-3xl shadow-[0_12px_36px_rgba(15,23,42,0.1),inset_0_1px_0_rgba(255,255,255,0.5)] dark:shadow-[0_12px_36px_rgba(0,0,0,0.5),inset_0_1px_0_rgba(255,255,255,0.1)] transition-all duration-300"
   aria-label="Navigasi Mobile"
 >
   <ul class="flex flex-col gap-3 text-base font-medium">
@@ -120,7 +148,7 @@ const navLinks = [
         <a 
           href={link.href} 
           data-i18n={link.labelKey}
-          class="mobile-nav-link block py-2 px-3 text-[#374151] hover:bg-blue-50/80 hover:text-[#0047FF] rounded-xl transition-colors"
+          class="mobile-nav-link block py-2 px-3 text-text-secondary hover:bg-blue-50/80 dark:hover:bg-white/10 hover:text-[#0047FF] dark:hover:text-[#60A5FA] rounded-xl transition-colors"
         >
           {link.defaultLabel}
         </a>
@@ -128,22 +156,22 @@ const navLinks = [
     ))}
 
     <!-- Mobile Language Switcher -->
-    <li class="pt-3 border-t border-gray-100 flex items-center justify-between px-3">
-      <span class="text-xs font-semibold text-gray-500 uppercase tracking-wider">Language / Bahasa</span>
-      <div class="flex items-center p-1 rounded-full bg-gray-100/80 border border-gray-200/80 text-xs font-semibold">
+    <li class="pt-3 border-t border-gray-100 dark:border-white/10 flex items-center justify-between px-3">
+      <span class="text-xs font-semibold text-text-muted uppercase tracking-wider">Language / Bahasa</span>
+      <div class="lang-switcher-container text-xs font-semibold">
         <button
           type="button"
           data-lang="en"
-          class="lang-switcher-btn px-3 py-1 rounded-full transition-all duration-200 bg-[#0047FF] text-white shadow-xs"
-          aria-label="Switch language to English"
+          class="lang-switcher-btn active px-3 py-1 rounded-full focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none"
+          aria-label="Ganti bahasa ke Inggris"
         >
           EN
         </button>
-        <span class="text-gray-300 px-1 select-none">|</span>
+        <span class="text-gray-350 dark:text-gray-800 px-1 select-none">|</span>
         <button
           type="button"
           data-lang="id"
-          class="lang-switcher-btn px-3 py-1 rounded-full transition-all duration-200 text-[#4B5563] hover:text-[#000000]"
+          class="lang-switcher-btn px-3 py-1 rounded-full focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none"
           aria-label="Ubah bahasa ke Bahasa Indonesia"
         >
           ID
@@ -154,10 +182,11 @@ const navLinks = [
     <!-- Mobile CV Download Button -->
     <li class="pt-2">
       <a 
-        href="/CV_Mohamad_Arifin_Hasbi.pdf" 
+        href="/cv/Mohamad-Arifin-Hasbi-CV.pdf" 
+        download="Mohamad-Arifin-Hasbi-CV.pdf"
         target="_blank" 
         rel="noopener noreferrer"
-        class="flex items-center justify-center gap-2 w-full py-2.5 px-4 text-sm font-semibold text-white bg-[#000000] hover:bg-[#0047FF] rounded-xl transition-colors shadow-xs"
+        class="flex items-center justify-center gap-2 w-full py-2.5 px-4 text-sm font-semibold text-white bg-[#000000] hover:bg-[#0047FF] dark:bg-[#3B82F6] dark:hover:bg-[#2563EB] rounded-xl transition-colors shadow-xs"
       >
         <span data-i18n="navCvBtn">Download CV</span>
         <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 17L17 7"/><path d="M7 7h10v10"/></svg>
@@ -184,19 +213,30 @@ const navLinks = [
     const scrollY = window.scrollY;
 
     if (scrollY >= 40) {
-      // True Frosted Glassmorphism Pill (rgba(255,255,255,0.18), blur 30px, saturate 180%, 1px rgba(255,255,255,0.35) border, inset highlight)
+      // True Frosted Glassmorphism Pill (Light: rgba(255,255,255,0.14) | Dark: rgba(15,23,42,0.55))
       navbarContainer?.classList.add('top-3', 'sm:top-4');
       navbarContainer?.classList.remove('top-0');
 
       navbarInner?.classList.add(
-        'bg-[rgba(255,255,255,0.18)]',
-        'backdrop-blur-[30px]',
+        'bg-[rgba(255,255,255,0.14)]',
+        'dark:bg-[rgba(15,23,42,0.55)]',
+        'backdrop-blur-[24px]',
         'backdrop-saturate-[180%]',
-        'border-[rgba(255,255,255,0.35)]',
-        'shadow-[0_8px_32px_rgba(15,23,42,0.08),0_2px_8px_rgba(15,23,42,0.04),inset_0_1px_0_rgba(255,255,255,0.45)]',
+        'border-[rgba(255,255,255,0.10)]',
+        'shadow-[0_8px_30px_rgba(15,23,42,0.08),inset_0_1px_rgba(255,255,255,0.15)]',
         'translate-y-0'
       );
-      navbarInner?.classList.remove('border-transparent', 'bg-transparent', '-translate-y-1');
+      navbarInner?.classList.remove(
+        'border-transparent', 
+        'bg-transparent', 
+        '-translate-y-1',
+        'border-[rgba(255,255,255,0.35)]',
+        'dark:border-white/15',
+        'bg-[rgba(255,255,255,0.18)]',
+        'dark:bg-[rgba(15,23,42,0.35)]',
+        'shadow-[0_8px_32px_rgba(15,23,42,0.08),0_2px_8px_rgba(15,23,42,0.04),inset_0_1px_0_rgba(255,255,255,0.45)]',
+        'dark:shadow-[0_8px_32px_rgba(0,0,0,0.35),0_2px_8px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.15)]'
+      );
     } else {
       // Initial Transparent State
       navbarContainer?.classList.add('top-0');
@@ -204,11 +244,18 @@ const navLinks = [
 
       navbarInner?.classList.add('border-transparent', 'bg-transparent');
       navbarInner?.classList.remove(
-        'bg-[rgba(255,255,255,0.18)]',
-        'backdrop-blur-[30px]',
+        'bg-[rgba(255,255,255,0.14)]',
+        'dark:bg-[rgba(15,23,42,0.55)]',
+        'backdrop-blur-[24px]',
         'backdrop-saturate-[180%]',
+        'border-[rgba(255,255,255,0.10)]',
+        'shadow-[0_8px_30px_rgba(15,23,42,0.08),inset_0_1px_rgba(255,255,255,0.15)]',
+        'bg-[rgba(255,255,255,0.18)]',
+        'dark:bg-[rgba(15,23,42,0.35)]',
         'border-[rgba(255,255,255,0.35)]',
+        'dark:border-white/15',
         'shadow-[0_8px_32px_rgba(15,23,42,0.08),0_2px_8px_rgba(15,23,42,0.04),inset_0_1px_0_rgba(255,255,255,0.45)]',
+        'dark:shadow-[0_8px_32px_rgba(0,0,0,0.35),0_2px_8px_rgba(0,0,0,0.2),inset_0_1px_0_rgba(255,255,255,0.15)]',
         'translate-y-0'
       );
     }
@@ -260,11 +307,11 @@ const navLinks = [
         navLinkItems.forEach(item => {
           const sectionRef = item.getAttribute('data-nav-section');
           if (sectionRef === id) {
-            item.classList.add('bg-blue-50/90', 'text-[#0047FF]', 'font-semibold');
-            item.classList.remove('text-[#4B5563]');
+            item.classList.add('bg-blue-50/90', 'dark:bg-white/10', 'text-[#0047FF]', 'dark:text-[#60A5FA]', 'font-semibold');
+            item.classList.remove('text-text-secondary');
           } else {
-            item.classList.remove('bg-blue-50/90', 'text-[#0047FF]', 'font-semibold');
-            item.classList.add('text-[#4B5563]');
+            item.classList.remove('bg-blue-50/90', 'dark:bg-white/10', 'text-[#0047FF]', 'dark:text-[#60A5FA]', 'font-semibold');
+            item.classList.add('text-text-secondary');
           }
         });
       }

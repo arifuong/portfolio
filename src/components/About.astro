@@ -1,25 +1,27 @@
 ---
 ---
 
-<section id="about" class="py-16 sm:py-24 border-b border-gray-100 bg-[#FFFFFF]">
+<section id="about" class="py-16 sm:py-24 border-b border-gray-100 dark:border-white/8 bg-[#FFFFFF] dark:bg-[#0B1120] transition-colors duration-300">
   <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full">
     <div class="grid grid-cols-1 lg:grid-cols-12 gap-12 items-center">
       
       <!-- Profile Photo Column -->
       <div class="lg:col-span-5">
         <div class="relative max-w-sm mx-auto lg:max-w-none">
-          <div class="aspect-square rounded-2xl overflow-hidden bg-gray-100 border border-gray-200 shadow-sm relative group">
+          <div class="aspect-square rounded-2xl overflow-hidden bg-gray-100 dark:bg-gray-800 border border-gray-200 dark:border-white/10 shadow-sm relative group">
             <img 
-              src="/images/profile.jpg" 
-              alt="Foto profil Mohamad Arifin Hasbi, mahasiswa Teknik Informatika STMIK Mardira Indonesia"
+              src="/profile.webp" 
+              alt="Mohamad Arifin Hasbi - Full Stack Developer"
               class="w-full h-full object-cover transition-transform duration-500 group-hover:scale-105"
               loading="lazy"
               width="400"
               height="400"
+              draggable="false"
+              data-watermark
             />
           </div>
           <!-- Decorative accent box -->
-          <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-blue-50/80 rounded-2xl -z-10 border border-blue-100 hidden sm:block"></div>
+          <div class="absolute -bottom-4 -right-4 w-32 h-32 bg-blue-50/80 dark:bg-blue-950/20 rounded-2xl -z-10 border border-blue-100 dark:border-blue-900/30 hidden sm:block"></div>
         </div>
       </div>
 
@@ -27,51 +29,51 @@
       <div class="lg:col-span-7">
         <div 
           data-i18n="aboutEyebrow"
-          class="inline-block text-xs font-bold uppercase tracking-widest text-[#0047FF] mb-2"
+          class="inline-block text-xs font-bold uppercase tracking-widest text-[#0047FF] dark:text-[#60A5FA] mb-2"
         >
-          About Me
+          Tentang Saya
         </div>
         
         <h2 
           data-i18n="aboutTitle"
-          class="font-display text-3xl sm:text-4xl font-bold text-[#000000] mb-6"
+          class="font-display text-3xl sm:text-4xl font-bold text-text-primary mb-6"
         >
-          Informatics Student with a Passion for Full Stack Engineering
+          Mahasiswa Teknik Informatika dengan Semangat Full Stack Engineering
         </h2>
 
-        <div class="space-y-4 text-base text-[#4B5563] leading-relaxed mb-8">
-          <p data-i18n="aboutBio1">
-            I am an active 6th-semester student pursuing Informatics Engineering at STMIK Mardira Indonesia with a 3.64/4.00 GPA. I have a deep passion for modern software engineering, scalable backend architecture, and responsive user interfaces.
+        <div class="space-y-4 text-base text-text-secondary leading-relaxed mb-8">
+          <p data-i18n="aboutParagraph1">
+            Saya adalah mahasiswa aktif Semester 6 program studi Teknik Informatika di STMIK Mardira Indonesia dengan IPK 3.64/4.00. Saya memiliki ketertarikan mendalam pada pengembangan perangkat lunak modern, arsitektur backend yang scalable, dan antarmuka pengguna yang responsif.
           </p>
-          <p data-i18n="aboutBio2">
-            Throughout my studies, I have developed web systems using Java (Spring Boot), PHP (Laravel, CodeIgniter), and JavaScript/TypeScript (React, Astro). Experienced in Clean Architecture principles, REST API standards, and relational database management (MySQL, PostgreSQL).
+          <p data-i18n="aboutParagraph2">
+            Selama studi, saya telah membangun sistem web menggunakan Java (Spring Boot), PHP (Laravel, CodeIgniter), dan JavaScript/TypeScript (React). Saya berpengalaman dalam penerapan prinsip clean architecture, standar REST API, serta pengelolaan database relational (MySQL).
           </p>
         </div>
 
         <!-- Relevan Mata Kuliah Highlight -->
-        <div class="mb-8 p-4 rounded-xl bg-gray-50 border border-gray-200">
-          <div class="flex items-center gap-2 text-sm font-semibold text-[#1F2937] mb-2">
-            <svg class="w-4 h-4 text-[#0047FF]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
-            <span data-i18n="aboutCoursesTitle">Relevant Coursework</span>
+        <div class="mb-8 p-4 rounded-xl glass-card">
+          <div class="flex items-center gap-2 text-sm font-semibold text-text-primary mb-2">
+            <svg class="w-4 h-4 text-[#0047FF] dark:text-[#60A5FA]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M4 19.5v-15A2.5 2.5 0 0 1 6.5 2H20v20H6.5a2.5 2.5 0 0 1 0-5H20"/></svg>
+            <span data-i18n="aboutCoursesTitle">Mata Kuliah Relevan</span>
           </div>
-          <p data-i18n="aboutCoursesList" class="text-xs sm:text-sm text-[#4B5563]">
-            Object-Oriented Programming (OOP), Software Engineering, Databases, Web Programming, Expert Systems, Data Structures &amp; Algorithms.
+          <p data-i18n="aboutCoursesList" class="text-xs sm:text-sm text-text-secondary">
+            Pemrograman Berbasis Objek (PBO), Rekayasa Perangkat Lunak, Basis Data, Pemrograman Web, Sistem Pakar, Struktur Data &amp; Algoritma.
           </p>
         </div>
 
-        <!-- Quick Stats Grid -->
-        <div class="grid grid-cols-3 gap-4 pt-4 border-t border-gray-100">
-          <div class="p-3 rounded-xl bg-white border border-gray-100 shadow-xs text-center sm:text-left">
-            <div data-i18n="aboutStat1Value" class="font-display text-2xl sm:text-3xl font-bold text-[#000000]">3+</div>
-            <div data-i18n="aboutStat1Label" class="text-xs text-[#6B7280] font-medium mt-0.5">Core Projects</div>
+        <!-- Quick Stats Bento-style -->
+        <div class="grid grid-cols-3 gap-4">
+          <div class="p-3 rounded-xl glass-card text-center sm:text-left">
+            <div data-i18n="aboutStat1Value" class="font-display text-2xl sm:text-3xl font-bold text-text-primary">3+</div>
+            <div data-i18n="aboutStat1Label" class="text-xs text-text-muted font-medium mt-0.5">Proyek Utama</div>
           </div>
-          <div class="p-3 rounded-xl bg-white border border-gray-100 shadow-xs text-center sm:text-left">
-            <div data-i18n="aboutStat2Value" class="font-display text-2xl sm:text-3xl font-bold text-[#0047FF]">3.64</div>
-            <div data-i18n="aboutStat2Label" class="text-xs text-[#6B7280] font-medium mt-0.5">GPA / 4.00</div>
+          <div class="p-3 rounded-xl glass-card text-center sm:text-left">
+            <div data-i18n="aboutStat2Value" class="font-display text-2xl sm:text-3xl font-bold text-[#0047FF] dark:text-[#60A5FA]">3.64</div>
+            <div data-i18n="aboutStat2Label" class="text-xs text-text-muted font-medium mt-0.5">IPK / 4.00</div>
           </div>
-          <div class="p-3 rounded-xl bg-white border border-gray-100 shadow-xs text-center sm:text-left">
-            <div data-i18n="aboutStat3Value" class="font-display text-2xl sm:text-3xl font-bold text-[#000000]">Sem 6</div>
-            <div data-i18n="aboutStat3Label" class="text-xs text-[#6B7280] font-medium mt-0.5">STMIK Mardira</div>
+          <div class="p-3 rounded-xl glass-card text-center sm:text-left">
+            <div data-i18n="aboutStat3Value" class="font-display text-2xl sm:text-3xl font-bold text-text-primary">Sem 6</div>
+            <div data-i18n="aboutStat3Label" class="text-xs text-text-muted font-medium mt-0.5">STMIK Mardira</div>
           </div>
         </div>
 

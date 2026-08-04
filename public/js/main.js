@@ -4,14 +4,14 @@
 
 (function () {
   const STORAGE_KEY = 'portfolio_lang';
-  const DEFAULT_LANG = 'en';
+  const DEFAULT_LANG = 'id';
 
   /**
    * Get currently active language from localStorage or default
    */
   function getCurrentLang() {
     const saved = localStorage.getItem(STORAGE_KEY);
-    return saved === 'id' ? 'id' : DEFAULT_LANG;
+    return saved === 'en' ? 'en' : DEFAULT_LANG;
   }
 
   /**
@@ -48,11 +48,9 @@
       btn.setAttribute('aria-pressed', isCurrent ? 'true' : 'false');
 
       if (isCurrent) {
-        btn.classList.add('bg-[#0047FF]', 'text-white', 'shadow-xs');
-        btn.classList.remove('text-[#4B5563]', 'hover:text-[#000000]');
+        btn.classList.add('active');
       } else {
-        btn.classList.remove('bg-[#0047FF]', 'text-white', 'shadow-xs');
-        btn.classList.add('text-[#4B5563]', 'hover:text-[#000000]');
+        btn.classList.remove('active');
       }
     });
   }

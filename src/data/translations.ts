@@ -1,7 +1,7 @@
 export interface TranslationSchema {
   metaTitle: string;
   metaDesc: string;
-  
+
   // Nav
   navAbout: string;
   navSkills: string;
@@ -27,8 +27,8 @@ export interface TranslationSchema {
   // About
   aboutEyebrow: string;
   aboutTitle: string;
-  aboutBio1: string;
-  aboutBio2: string;
+  aboutParagraph1: string;
+  aboutParagraph2: string;
   aboutCoursesTitle: string;
   aboutCoursesList: string;
   aboutStat1Value: string;
@@ -63,7 +63,7 @@ export interface TranslationSchema {
   // Experience
   expEyebrow: string;
   expTitle: string;
-  expDesc: string;
+  expSubtitle: string;
   exp1Role: string;
   exp1Company: string;
   exp1Project: string;
@@ -82,12 +82,13 @@ export interface TranslationSchema {
   // Contact
   contactEyebrow: string;
   contactTitle: string;
-  contactDesc: string;
+  contactSubtitle: string;
   contactEmailLabel: string;
   contactPhoneLabel: string;
   contactGithubLabel: string;
   contactLinkedinLabel: string;
   contactLinkedinSubtitle: string;
+  contactAriaLinkedin: string;
   contactSendWhatsapp: string;
   contactVisitGithub: string;
   contactVisitLinkedin: string;
@@ -129,8 +130,8 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     // About
     aboutEyebrow: "About Me",
     aboutTitle: "Informatics Student with a Passion for Full Stack Engineering",
-    aboutBio1: "I am an active 6th-semester student pursuing Informatics Engineering at STMIK Mardira Indonesia with a 3.64/4.00 GPA. I have a deep passion for modern software engineering, scalable backend architecture, and responsive user interfaces.",
-    aboutBio2: "Throughout my studies, I have developed web systems using Java (Spring Boot), PHP (Laravel, CodeIgniter), and JavaScript/TypeScript (React, Astro). Experienced in Clean Architecture principles, REST API standards, and relational database management (MySQL, PostgreSQL).",
+    aboutParagraph1: "I am an active 6th-semester student pursuing Informatics Engineering at STMIK Mardira Indonesia with a 3.64/4.00 GPA. I have a deep passion for modern software engineering, scalable backend architecture, and responsive user interfaces.",
+    aboutParagraph2: "Throughout my studies, I have developed web systems using Java (Spring Boot), PHP (Laravel, CodeIgniter), and JavaScript/TypeScript (React). I am experienced in applying clean architecture principles, REST API standards, and relational database management using MySQL.",
     aboutCoursesTitle: "Relevant Coursework",
     aboutCoursesList: "Object-Oriented Programming (OOP), Software Engineering, Databases, Web Programming, Expert Systems, Data Structures & Algorithms.",
     aboutStat1Value: "3+",
@@ -165,7 +166,7 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     // Experience
     expEyebrow: "Experience",
     expTitle: "Professional & Field Experience",
-    expDesc: "Professional work experience and field survey operations that built discipline, communication skills, and data precision.",
+    expSubtitle: "A timeline of my professional experience, academic background, and community contributions.",
     exp1Role: "Enumerator",
     exp1Company: "Central Bureau of Statistics (BPS)",
     exp1Project: "Socio-Economic Registration (Regsosek)",
@@ -184,12 +185,13 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     // Contact
     contactEyebrow: "Contact",
     contactTitle: "Let's Connect & Collaborate",
-    contactDesc: "I am open to internship opportunities, freelance projects, or discussions about web engineering. Feel free to reach out through any channel below.",
+    contactSubtitle: "Feel free to reach out for collaboration, project inquiries, or just to say hi! I'm always open to discussing new opportunities.",
     contactEmailLabel: "Email",
     contactPhoneLabel: "WhatsApp",
     contactGithubLabel: "GitHub",
     contactLinkedinLabel: "LinkedIn",
     contactLinkedinSubtitle: "Let's connect professionally.",
+    contactAriaLinkedin: "LinkedIn profile of Mohamad Arifin Hasbi",
     contactSendWhatsapp: "Send Message →",
     contactVisitGithub: "Visit Profile →",
     contactVisitLinkedin: "View Profile →",
@@ -201,8 +203,8 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     footerAriaLinkedin: "LinkedIn profile of Mohamad Arifin Hasbi"
   },
   id: {
-    metaTitle: "Mohamad Arifin Hasbi — Full Stack Developer & Mahasiswa IT",
-    metaDesc: "Portfolio resmi Mohamad Arifin Hasbi, Full Stack Developer dan mahasiswa Teknik Informatika STMIK Mardira Indonesia (IPK 3.64). Menguasai Spring Boot, Laravel, React, dan MySQL.",
+    metaTitle: "Mohamad Arifin Hasbi — Full Stack Developer & Mahasiswa Teknik Informatika",
+    metaDesc: "Portofolio resmi Mohamad Arifin Hasbi, Full Stack Developer dan mahasiswa Teknik Informatika STMIK Mardira Indonesia (IPK 3.64). Menguasai Spring Boot, Laravel, React, dan MySQL.",
 
     // Nav
     navAbout: "Tentang",
@@ -211,7 +213,7 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     navExperience: "Pengalaman",
     navContact: "Kontak",
     navCvBtn: "Download CV",
-    navAriaHome: "Kembali ke paling atas halaman Mohamad Arifin Hasbi",
+    navAriaHome: "Kembali ke bagian atas halaman Mohamad Arifin Hasbi",
     navAriaMenuOpen: "Buka menu navigasi",
     navAriaMenuClose: "Tutup menu navigasi",
 
@@ -219,7 +221,7 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     heroBadge: "IPK 3.64 — STMIK Mardira Indonesia",
     heroName: "Mohamad Arifin Hasbi",
     heroRole: "Full Stack Developer & Mahasiswa Teknik Informatika",
-    heroSummary: "Mengembangkan aplikasi web modern berbasis Spring Boot, Laravel, dan React dengan arsitektur bersih dan performa tinggi.",
+    heroSummary: "Membangun aplikasi web modern menggunakan Spring Boot, Laravel, dan React dengan menerapkan clean architecture serta performa yang tinggi.",
     heroCtaProjects: "Lihat Proyek",
     heroCtaCv: "Download CV",
     heroAriaGithub: "Profil GitHub Mohamad Arifin Hasbi",
@@ -228,9 +230,9 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
 
     // About
     aboutEyebrow: "Tentang Saya",
-    aboutTitle: "Mahasiswa Teknik Informatika dengan Semangat Full Stack Development",
-    aboutBio1: "Saya adalah mahasiswa aktif Semester 6 program studi Teknik Informatika di STMIK Mardira Indonesia dengan IPK 3.64/4.00. Memiliki ketertarikan mendalam pada pengembangan perangkat lunak modern, arsitektur backend, dan antarmuka responsif.",
-    aboutBio2: "Selama studi, saya telah membangun beberapa proyek sistem informasi menggunakan Java (Spring Boot), PHP (Laravel, CodeIgniter), dan JavaScript/TypeScript (React, Astro). Saya terbiasa menerapkan prinsip Clean Architecture, REST API standards, dan pengelolaan database relational (MySQL, PostgreSQL).",
+    aboutTitle: "Mahasiswa Teknik Informatika dengan Semangat Full Stack Engineering",
+    aboutParagraph1: "Saya adalah mahasiswa aktif Semester 6 program studi Teknik Informatika di STMIK Mardira Indonesia dengan IPK 3.64/4.00. Saya memiliki ketertarikan mendalam pada pengembangan perangkat lunak modern, arsitektur backend yang scalable, dan antarmuka pengguna yang responsif.",
+    aboutParagraph2: "Selama studi, saya telah membangun sistem web menggunakan Java (Spring Boot), PHP (Laravel, CodeIgniter), dan JavaScript/TypeScript (React). Saya berpengalaman dalam penerapan prinsip clean architecture, standar REST API, serta pengelolaan database relasional menggunakan MySQL.",
     aboutCoursesTitle: "Mata Kuliah Relevan",
     aboutCoursesList: "Pemrograman Berbasis Objek (PBO), Rekayasa Perangkat Lunak, Basis Data, Pemrograman Web, Sistem Pakar, Struktur Data & Algoritma.",
     aboutStat1Value: "3+",
@@ -243,61 +245,62 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     // Skills
     skillsEyebrow: "Keahlian",
     skillsTitle: "Tech Stack & Kompetensi",
-    skillsDesc: "Teknologi dan tools yang biasa saya gunakan dalam membangun aplikasi full stack dari konsep hingga deployment.",
-    catLanguages: "Languages",
-    catFrameworks: "Frameworks & Libraries",
+    skillsDesc: "Teknologi dan tools yang rutin saya gunakan untuk merancang, membangun, dan men-deploy aplikasi web full stack.",
+    catLanguages: "Bahasa Pemrograman",
+    catFrameworks: "Framework & Library",
     catDatabase: "Database",
-    catTools: "Tools & Ecosystem",
-    catConcepts: "Concepts & Architecture",
+    catTools: "Tools & Ekosistem",
+    catConcepts: "Konsep & Arsitektur",
 
     // Projects
-    projectsEyebrow: "Portofolio Proyek",
+    projectsEyebrow: "Proyek Unggulan",
     projectsTitle: "Proyek Pilihan & Karya Akademik",
-    projectsDesc: "Aplikasi web yang telah saya rancang dan kembangkan dengan fokus pada fungsionalitas, keamanan data, dan arsitektur yang mudah dirawat.",
+    projectsDesc: "Aplikasi web yang saya bangun dengan penekanan kuat pada keandalan, keamanan data, dan arsitektur yang mudah dirawat.",
     proj1Title: "Sistem Informasi Tracer Study Alumni",
-    proj1Desc: "Aplikasi web untuk melacak dan menganalisis data alumni, termasuk status pekerjaan, relevansi pendidikan, dan feedback untuk peningkatan kurikulum. Dilengkapi dashboard admin dan fitur export laporan.",
+    proj1Desc: "Aplikasi web untuk melacak dan menganalisis karier alumni, relevansi pekerjaan, serta feedback untuk peningkatan kurikulum. Dilengkapi dashboard analitik admin dan pelaporan otomatis.",
     proj2Title: "Sistem Pre-Order Ketupat Cinta",
-    proj2Desc: "Platform e-commerce sederhana untuk mengelola pre-order produk makanan, dengan fitur manajemen pesanan, perhitungan harga otomatis, dan notifikasi status pesanan ke pelanggan.",
-    proj3Title: "Sistem Pakar Diagnosa Penyakit Kucing",
-    proj3Desc: "Aplikasi berbasis sistem pakar menggunakan metode Certainty Factor untuk mendiagnosa penyakit pada kucing berdasarkan gejala yang dipilih pengguna, dilengkapi basis pengetahuan dari pakar hewan.",
+    proj2Desc: "Platform e-commerce pre-order untuk produk makanan olahan, dilengkapi fitur pelacakan pesanan otomatis, perhitungan harga, dan notifikasi status pesanan kepada pelanggan.",
+    proj3Title: "Sistem Pakar Diagnosis Penyakit Kucing",
+    proj3Desc: "Aplikasi sistem pakar yang menerapkan algoritma Certainty Factor untuk mendiagnosis kondisi medis kucing berdasarkan gejala yang dipilih pengguna.",
     projectsViewGithub: "Lihat Kode Sumber di GitHub",
 
     // Experience
     expEyebrow: "Pengalaman Kerja",
     expTitle: "Pengalaman Lapangan & Profesional",
-    expDesc: "Pengalaman kerja profesional dan kegiatan pendataan lapangan yang membentuk kedisiplinan, komunikasi, dan ketelitian data.",
+    expSubtitle: "Linimasa pengalaman profesional, latar belakang akademis, dan kontribusi komunitas saya.",
     exp1Role: "Enumerator",
     exp1Company: "Badan Pusat Statistik (BPS)",
     exp1Project: "Registrasi Sosial Ekonomi (Regsosek)",
     exp1Period: "2022 – 2023",
-    exp1Desc: "Melakukan pendataan sosial ekonomi masyarakat melalui wawancara langsung door-to-door, input data ke sistem digital BPS, serta verifikasi dan validasi data lapangan.",
+    exp1Desc: "Melakukan wawancara sosial ekonomi lapangan secara door-to-door, menginput data lapangan ke sistem digital BPS, serta melaksanakan validasi dan verifikasi data di lokasi.",
     exp2Role: "Enumerator",
     exp2Company: "Kementerian Koperasi & UKM RI",
-    exp2Project: "Pendataan Koperasi Nasional",
+    exp2Project: "Sensus Koperasi Nasional",
     exp2Period: "2023",
-    exp2Desc: "Pendataan dan verifikasi data koperasi secara langsung ke unit usaha, meliputi profil koperasi, jumlah anggota, aset, dan volume usaha untuk database nasional.",
+    exp2Desc: "Melakukan survei dan verifikasi unit usaha secara langsung di lapangan, mencatat profil koperasi, jumlah anggota, aset, serta volume usaha tahunan untuk database nasional.",
     exp3Role: "Operator",
     exp3Company: "SPBU",
     exp3Period: "2022 – 2023",
-    exp3Desc: "Melayani pelanggan dalam pengisian bahan bakar, mengelola transaksi harian, dan memastikan operasional shift berjalan sesuai standar keselamatan.",
+    exp3Desc: "Melayani pelanggan dalam distribusi bahan bakar, mengelola transaksi tunai dan digital harian, serta memastikan operasional shift mematuhi standar keselamatan secara ketat.",
 
     // Contact
     contactEyebrow: "Kontak",
     contactTitle: "Mari Terhubung dan Berkolaborasi",
-    contactDesc: "Saya terbuka untuk peluang magang, proyek freelance, atau diskusi seputar pengembangan web. Silakan hubungi saya melalui media di bawah ini.",
+    contactSubtitle: "Saya terbuka untuk peluang magang, proyek freelance, atau diskusi seputar pengembangan web. Silakan hubungi saya melalui media apa pun yang tersedia di bawah ini.",
     contactEmailLabel: "Email",
     contactPhoneLabel: "WhatsApp",
     contactGithubLabel: "GitHub",
     contactLinkedinLabel: "LinkedIn",
     contactLinkedinSubtitle: "Mari terhubung secara profesional.",
+    contactAriaLinkedin: "Profil LinkedIn Mohamad Arifin Hasbi",
     contactSendWhatsapp: "Kirim Pesan →",
     contactVisitGithub: "Kunjungi Profil →",
-    contactVisitLinkedin: "Kunjungi Profil →",
+    contactVisitLinkedin: "Lihat Profil →",
     contactCopySuccess: "Alamat email berhasil disalin!",
 
     // Footer
-    footerCopyright: "Mohamad Arifin Hasbi. Hak Cipta Dilindungi Undang-Undang.",
-    footerBackToTop: "Kembali ke bagian paling atas halaman",
+    footerCopyright: "Mohamad Arifin Hasbi. All Rights Reserved.",
+    footerBackToTop: "Kembali ke atas",
     footerAriaLinkedin: "Profil LinkedIn Mohamad Arifin Hasbi"
   }
 };

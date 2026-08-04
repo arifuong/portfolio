@@ -1,7 +1,7 @@
 {
   "languages": ["Java", "PHP", "JavaScript", "TypeScript", "HTML", "CSS", "SQL"],
   "frameworks": ["Spring Boot", "Laravel", "React", "CodeIgniter", "Tailwind CSS", "Bootstrap"],
-  "database": ["MySQL", "PostgreSQL"],
+  "database": ["MySQL"],
   "tools": ["Git", "GitHub", "VS Code", "Postman", "Figma", "Docker"],
-  "concepts": ["OOP", "REST API", "MVC", "Clean Architecture", "JWT Authentication", "Agile"]
+  "concepts": ["OOP", "REST API", "MVC", "Clean Architecture", "JWT Authentication"]
 }
