@@ -4,29 +4,48 @@ import '../styles/global.css';
 interface Props {
   title?: string;
   description?: string;
+  keywords?: string;
 }
 
+const SITE_URL = 'https://portfolio-zeta-navy-gbloxdhna7.vercel.app';
+const SITE_NAME = 'Mohamad Arifin Hasbi';
+
 const {
-  title = "Mohamad Arifin Hasbi — Full Stack Developer & Mahasiswa Teknik Informatika",
-  description = "Portofolio resmi Mohamad Arifin Hasbi, Full Stack Developer dan mahasiswa Teknik Informatika STMIK Mardira Indonesia (IPK 3.64). Menguasai Java Spring Boot, Laravel, CodeIgniter, React, JavaScript, TypeScript, dan MySQL."
+  title = "Mohamad Arifin Hasbi | Portfolio | Full Stack Developer | AI Engineer | Cloud Computing",
+  description = "Portfolio resmi Mohamad Arifin Hasbi — Full Stack Developer, AI Engineer, dan Cloud Computing Enthusiast. Mahasiswa Teknik Informatika STMIK Mardira Indonesia (IPK 3.64). Berpengalaman dengan Spring Boot, Laravel, React, Google Cloud, dan Machine Learning.",
+  keywords = "Mohamad Arifin Hasbi, Portfolio Mohamad Arifin Hasbi, Full Stack Developer, AI Engineer, Cloud Computing, Machine Learning, Google Cloud, Data Analyst, web developer, Laravel, Spring Boot, React, CodeIgniter, MySQL, STMIK Mardira Indonesia, Teknik Informatika, JavaScript, TypeScript, Java, PHP, Cloud Engineer"
 } = Astro.props;
 
 const canonicalURL = new URL(
   Astro.url.pathname,
-  Astro.site || 'https://portfolio-zeta-navy-gbloxdhna7.vercel.app'
+  Astro.site || SITE_URL
 );
 
 const ogImageURL = new URL('/og-image.png', canonicalURL);
 
+// ========== Structured Data: Person ==========
 const personSchema = {
   "@context": "https://schema.org",
   "@type": "Person",
   "name": "Mohamad Arifin Hasbi",
-  "jobTitle": "Full Stack Developer",
+  "givenName": "Mohamad Arifin",
+  "familyName": "Hasbi",
+  "jobTitle": ["Full Stack Developer", "AI Engineer", "Cloud Computing Enthusiast"],
+  "description": "Mohamad Arifin Hasbi adalah Full Stack Developer, AI Engineer, dan Cloud Computing Enthusiast. Mahasiswa Teknik Informatika di STMIK Mardira Indonesia dengan IPK 3.64. Menguasai Spring Boot, Laravel, React, Google Cloud Platform, dan Machine Learning.",
   "url": canonicalURL.toString(),
+  "image": {
+    "@type": "ImageObject",
+    "url": new URL('/profile.webp', SITE_URL).toString(),
+    "width": 400,
+    "height": 400,
+    "caption": "Foto Mohamad Arifin Hasbi — Full Stack Developer dan AI Engineer"
+  },
+  "email": "mailto:arifuong@gmail.com",
+  "telephone": "+6285846653147",
   "alumniOf": {
     "@type": "CollegeOrUniversity",
-    "name": "STMIK Mardira Indonesia"
+    "name": "STMIK Mardira Indonesia",
+    "url": "https://stmik-mi.ac.id"
   },
   "sameAs": [
     "https://github.com/arifuong",
@@ -34,8 +53,14 @@ const personSchema = {
     "https://wa.me/6285846653147"
   ],
   "knowsAbout": [
-    "Software Engineering",
     "Full Stack Development",
+    "Artificial Intelligence",
+    "Machine Learning",
+    "Cloud Computing",
+    "Google Cloud Platform",
+    "Natural Language Processing",
+    "Software Engineering",
+    "Data Analysis",
     "Java",
     "Spring Boot",
     "PHP",
@@ -44,7 +69,120 @@ const personSchema = {
     "JavaScript",
     "TypeScript",
     "React",
-    "MySQL"
+    "Python",
+    "MySQL",
+    "REST API",
+    "Clean Architecture",
+    "Docker"
+  ],
+  "knowsLanguage": ["id", "en"],
+  "hasCredential": {
+    "@type": "EducationalOccupationalCredential",
+    "name": "Analyze Sentiment with Natural Language API Skill Badge",
+    "credentialCategory": "Google Cloud Skill Badge",
+    "recognizedBy": {
+      "@type": "Organization",
+      "name": "Google Cloud"
+    }
+  },
+  "nationality": {
+    "@type": "Country",
+    "name": "Indonesia"
+  }
+};
+
+// ========== Structured Data: WebSite ==========
+const websiteSchema = {
+  "@context": "https://schema.org",
+  "@type": "WebSite",
+  "name": "Portfolio Mohamad Arifin Hasbi",
+  "alternateName": ["Mohamad Arifin Hasbi Portfolio", "Arifin Hasbi"],
+  "url": SITE_URL,
+  "description": description,
+  "inLanguage": "id",
+  "author": {
+    "@type": "Person",
+    "name": SITE_NAME
+  },
+  "potentialAction": {
+    "@type": "SearchAction",
+    "target": `${SITE_URL}/?q={search_term_string}`,
+    "query-input": "required name=search_term_string"
+  }
+};
+
+// ========== Structured Data: BreadcrumbList ==========
+const breadcrumbSchema = {
+  "@context": "https://schema.org",
+  "@type": "BreadcrumbList",
+  "itemListElement": [
+    {
+      "@type": "ListItem",
+      "position": 1,
+      "name": "Portfolio Mohamad Arifin Hasbi",
+      "item": SITE_URL
+    }
+  ]
+};
+
+// ========== Structured Data: ProfilePage ==========
+const profilePageSchema = {
+  "@context": "https://schema.org",
+  "@type": "ProfilePage",
+  "name": title,
+  "description": description,
+  "url": canonicalURL.toString(),
+  "dateCreated": "2026-01-01",
+  "dateModified": new Date().toISOString().split('T')[0],
+  "mainEntity": {
+    "@id": `${SITE_URL}/#person`
+  },
+  "breadcrumb": {
+    "@id": `${SITE_URL}/#breadcrumb`
+  }
+};
+
+// ========== Structured Data: FAQPage ==========
+const faqSchema = {
+  "@context": "https://schema.org",
+  "@type": "FAQPage",
+  "mainEntity": [
+    {
+      "@type": "Question",
+      "name": "Siapa Mohamad Arifin Hasbi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mohamad Arifin Hasbi adalah seorang Full Stack Developer, AI Engineer, dan Cloud Computing Enthusiast. Saat ini ia merupakan mahasiswa Teknik Informatika di STMIK Mardira Indonesia dengan IPK 3.64/4.00. Ia menguasai berbagai teknologi seperti Java Spring Boot, Laravel, React, Google Cloud Platform, dan Machine Learning."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Apa keahlian Mohamad Arifin Hasbi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mohamad Arifin Hasbi memiliki keahlian di bidang Full Stack Development (Spring Boot, Laravel, React), Artificial Intelligence dan Machine Learning, Cloud Computing (Google Cloud Platform), serta Data Analysis. Ia juga berpengalaman dalam REST API development, clean architecture, dan database management dengan MySQL."
+      }
+    },
+    {
+      "@type": "Question",
+      "name": "Bagaimana cara menghubungi Mohamad Arifin Hasbi?",
+      "acceptedAnswer": {
+        "@type": "Answer",
+        "text": "Mohamad Arifin Hasbi dapat dihubungi melalui email di arifuong@gmail.com, LinkedIn di linkedin.com/in/mohamad-arifin-hasbi-88915b425, WhatsApp di +62 858-4665-3147, atau melalui profil GitHub di github.com/arifuong."
+      }
+    }
+  ]
+};
+
+// Combined JSON-LD graph
+const jsonLd = {
+  "@context": "https://schema.org",
+  "@graph": [
+    { ...personSchema, "@id": `${SITE_URL}/#person` },
+    { ...websiteSchema, "@id": `${SITE_URL}/#website`, "publisher": { "@id": `${SITE_URL}/#person` } },
+    { ...breadcrumbSchema, "@id": `${SITE_URL}/#breadcrumb` },
+    { ...profilePageSchema, "@id": `${SITE_URL}/#profilepage` },
+    { ...faqSchema, "@id": `${SITE_URL}/#faq` }
   ]
 };
 ---
@@ -53,13 +191,25 @@ const personSchema = {
 <html lang="id" class="scroll-smooth">
 <head>
   <meta charset="UTF-8" />
-  <meta name="google-site-verification" content="jowOgDp2UHmKBaT8Jets1JUjZK6bZnIGAsDGNXbgCVI" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-  <link rel="icon" type="image/webp" href="/profile.webp" />
-  <meta name="generator" content={Astro.generator} />
-  <meta name="theme-color" content="#ffffff" id="theme-meta" />
 
-  <!-- Anti-Flicker Inline Theme Script (Executes before initial DOM render) -->
+  <!-- Search Engine Verification -->
+  <meta name="google-site-verification" content="jowOgDp2UHmKBaT8Jets1JUjZK6bZnIGAsDGNXbgCVI" />
+  <meta name="msvalidate.01" content="BING_VERIFICATION_CODE_HERE" />
+
+  <!-- Favicon: Multi-format for maximum compatibility -->
+  <link rel="icon" href="/favicon.ico" sizes="32x32" />
+  <link rel="icon" href="/favicon.svg" type="image/svg+xml" />
+  <link rel="apple-touch-icon" href="/favicon/apple-touch-icon.png" />
+  <link rel="manifest" href="/manifest.json" />
+
+  <!-- Theme & Generator -->
+  <meta name="generator" content={Astro.generator} />
+  <meta name="theme-color" content="#ffffff" media="(prefers-color-scheme: light)" />
+  <meta name="theme-color" content="#0B1120" media="(prefers-color-scheme: dark)" />
+  <meta name="color-scheme" content="light dark" />
+
+  <!-- Anti-Flicker Inline Theme Script (MUST stay inline, runs before DOM render) -->
   <script is:inline>
     (function() {
       try {
@@ -75,51 +225,91 @@ const personSchema = {
         } else {
           document.documentElement.classList.remove('dark');
         }
-        var meta = document.getElementById('theme-meta');
-        if (meta) {
-          meta.setAttribute('content', isDark ? '#0B1120' : '#ffffff');
-        }
       } catch (e) {}
     })();
   </script>
+
+  <!-- DNS Prefetch & Preconnect for external resources -->
+  <link rel="dns-prefetch" href="https://fonts.googleapis.com" />
+  <link rel="dns-prefetch" href="https://fonts.gstatic.com" />
+  <link rel="preconnect" href="https://fonts.googleapis.com" />
+  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin />
+
+  <!-- Google Fonts with display=swap for performance -->
+  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet" />
+
+  <!-- Preload critical above-the-fold image (LCP candidate) -->
+  <link rel="preload" as="image" type="image/webp" href="/profile.webp" />
 
   <!-- Primary Meta Tags -->
   <title>{title}</title>
   <meta name="title" content={title} />
   <meta name="description" content={description} />
-  <meta name="robots" content="index, follow" />
+  <meta name="keywords" content={keywords} />
+  <meta name="author" content="Mohamad Arifin Hasbi" />
+  <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href={canonicalURL} />
   <link rel="sitemap" href="/sitemap-index.xml" />
 
-  <!-- Google Fonts Preconnect -->
-  <link rel="preconnect" href="https://fonts.googleapis.com">
-  <link rel="preconnect" href="https://fonts.gstatic.com" crossorigin>
-  <link href="https://fonts.googleapis.com/css2?family=Inter:wght@400;500;600;700&family=Space+Grotesk:wght@500;600;700&display=swap" rel="stylesheet">
-
   <!-- Open Graph / Facebook -->
-  <meta property="og:type" content="website" />
+  <meta property="og:type" content="profile" />
   <meta property="og:url" content={canonicalURL} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
   <meta property="og:image" content={ogImageURL} />
+  <meta property="og:image:width" content="1200" />
+  <meta property="og:image:height" content="630" />
+  <meta property="og:image:alt" content="Mohamad Arifin Hasbi — Full Stack Developer, AI Engineer & Cloud Computing Portfolio" />
+  <meta property="og:site_name" content="Portfolio Mohamad Arifin Hasbi" />
+  <meta property="og:locale" content="id_ID" />
+  <meta property="og:locale:alternate" content="en_US" />
+  <meta property="profile:first_name" content="Mohamad Arifin" />
+  <meta property="profile:last_name" content="Hasbi" />
 
-  <!-- Twitter -->
-  <meta property="twitter:card" content="summary_large_image" />
-  <meta property="twitter:url" content={canonicalURL} />
-  <meta property="twitter:title" content={title} />
-  <meta property="twitter:description" content={description} />
-  <meta property="twitter:image" content={ogImageURL} />
+  <!-- Twitter Card (using name attribute per Twitter spec) -->
+  <meta name="twitter:card" content="summary_large_image" />
+  <meta name="twitter:url" content={canonicalURL.toString()} />
+  <meta name="twitter:title" content={title} />
+  <meta name="twitter:description" content={description} />
+  <meta name="twitter:image" content={ogImageURL.toString()} />
+  <meta name="twitter:image:alt" content="Mohamad Arifin Hasbi — Full Stack Developer, AI Engineer & Cloud Computing Portfolio" />
 
-  <!-- Structured Data JSON-LD -->
-  <script type="application/ld+json" set:html={JSON.stringify(personSchema)} />
-
-  <!-- i18n & Theme Scripts -->
-  <script is:inline src="/js/theme.js"></script>
-  <script is:inline src="/js/i18n.js"></script>
-  <script is:inline src="/js/main.js"></script>
-  <script is:inline src="/js/protection.js"></script>
+  <!-- Structured Data JSON-LD (single @graph for all schemas) -->
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
 </head>
-<body class="bg-[#FFFFFF] dark:bg-[#0B1120] text-[#4B5563] dark:text-[#CBD5E1] antialiased selection:bg-[#0047FF] dark:selection:bg-[#60A5FA] selection:text-white min-h-screen flex flex-col w-full max-w-full overflow-x-hidden transition-colors duration-300">
+<body class="bg-[#FFFFFF] dark:bg-[#0B1120] text-[#4B5563] dark:text-[#CBD5E1] antialiased selection:bg-[#0047FF] dark:selection:bg-[#60A5FA] selection:text-white min-h-screen flex flex-col w-full max-w-full transition-colors duration-300">
+  
   <slot />
+
+  <!-- Non-critical scripts: moved to end of body with defer for performance -->
+  <script is:inline src="/js/theme.js" defer></script>
+  <script is:inline src="/js/i18n.js" defer></script>
+  <script is:inline src="/js/main.js" defer></script>
+  <script is:inline src="/js/protection.js" defer></script>
+
+  <!-- Client-side Touch/Click Ripple Event Listener (Primary CTAs, Buttons, and Cards Only) -->
+  <script>
+    document.addEventListener('click', (e) => {
+      const target = (e.target as HTMLElement).closest('.interactive-card, .spring-btn, a.primary-cta');
+      if (!target) return;
+
+      const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (isReducedMotion) return;
+
+      const rect = target.getBoundingClientRect();
+      const ripple = document.createElement('span');
+      ripple.className = 'touch-ripple';
+      const size = Math.max(rect.width, rect.height);
+      const x = e.clientX - rect.left - size / 2;
+      const y = e.clientY - rect.top - size / 2;
+
+      ripple.style.width = ripple.style.height = `${size}px`;
+      ripple.style.left = `${x}px`;
+      ripple.style.top = `${y}px`;
+
+      target.appendChild(ripple);
+      setTimeout(() => ripple.remove(), 480);
+    });
+  </script>
 </body>
 </html>

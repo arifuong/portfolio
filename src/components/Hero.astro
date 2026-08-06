@@ -1,40 +1,65 @@
 ---
 ---
 
-<section id="hero" class="py-16 sm:py-24 border-b border-gray-100 dark:border-white/8 bg-[#FFFFFF] dark:bg-[#0B1120] transition-colors duration-300">
-  <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full">
+<section id="hero" class="sticky top-0 z-10 min-h-screen flex flex-col justify-center py-16 sm:py-24 border-b border-gray-100 dark:border-white/8 bg-[#FFFFFF] dark:bg-[#0B1120] transition-colors duration-300 relative">
+  
+  <!-- 1) CURVED ACCENT LINE (HERO SECTION ONLY - Inner SVG wrapper handles overflow-hidden) -->
+  <div class="absolute inset-0 pointer-events-none z-0 overflow-hidden" aria-hidden="true">
+    <svg class="w-full h-full opacity-40 dark:opacity-30" viewBox="0 0 1200 600" fill="none" preserveAspectRatio="none">
+      <defs>
+        <linearGradient id="hero-line-gradient" x1="0%" y1="0%" x2="100%" y2="100%">
+          <stop offset="0%" stop-color="#10B981" /> <!-- Neon Green Accent -->
+          <stop offset="50%" stop-color="#0047FF" /> <!-- Vibrant Blue Accent -->
+          <stop offset="100%" stop-color="#3B82F6" /> <!-- Cyan Accent -->
+        </linearGradient>
+      </defs>
+      <path 
+        d="M -100 200 Q 300 50 600 250 T 1300 150" 
+        stroke="url(#hero-line-gradient)" 
+        stroke-width="5" 
+        stroke-linecap="round"
+        fill="none" 
+        class="hero-curved-line"
+      />
+    </svg>
+  </div>
+
+  <div class="max-w-6xl mx-auto px-4 sm:px-6 w-full relative z-10">
     <div class="max-w-3xl">
 
-
-      <!-- Main Headline (Single <h1> on the page) -->
+      <!-- 2) HERO TEXT REVEAL: Main Headline (Single <h1>) -->
       <h1 
         data-i18n="heroName"
-        class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold text-text-primary tracking-tight leading-[1.05] mb-6"
+        class="font-display text-4xl sm:text-6xl lg:text-7xl font-bold text-text-primary tracking-tight leading-[1.05] mb-6 hero-stagger-fade hero-stagger-delay-1"
       >
         Mohamad Arifin Hasbi
       </h1>
 
-      <!-- Subtitle & Brief Role -->
-      <p 
+      <!-- Subtitle with semantic <h2> & Keyword Targets -->
+      <h2 
         data-i18n="heroRole"
-        class="text-xl sm:text-2xl font-medium text-[#0047FF] dark:text-[#60A5FA] mb-4"
+        class="text-xl sm:text-2xl font-medium text-[#0047FF] dark:text-[#60A5FA] mb-4 hero-stagger-fade hero-stagger-delay-2"
       >
-        Full Stack Developer &amp; Mahasiswa Teknik Informatika
-      </p>
+        Full Stack Developer · AI Engineer · Cloud Computing
+      </h2>
 
-      <!-- 1-Sentence Summary (Max 20 words) -->
+      <!-- 1-Sentence Summary with Repeatable Highlight Sweeps -->
       <p 
         data-i18n="heroSummary"
-        class="text-base sm:text-lg text-text-secondary leading-relaxed mb-8 max-w-2xl"
+        class="text-base sm:text-lg text-text-secondary leading-relaxed mb-8 max-w-2xl hero-stagger-fade hero-stagger-delay-3"
       >
-        Membangun aplikasi web modern menggunakan Spring Boot, Laravel, dan React dengan menerapkan clean architecture serta performa yang tinggi.
+        Membangun aplikasi web modern dan solusi AI dengan keahlian 
+        <span id="highlight-underline-target" class="highlight-underline font-semibold text-text-primary dark:text-white">analyzing data</span> 
+        serta 
+        <span id="highlight-marker-target" class="highlight-marker font-semibold text-text-primary dark:text-white">creating insights</span> 
+        menggunakan Spring Boot, Laravel, React, dan Google Cloud Platform.
       </p>
 
       <!-- CTAs & Socials -->
-      <div class="flex flex-wrap items-center gap-4 mb-6">
+      <div class="flex flex-wrap items-center gap-4 mb-6 hero-stagger-fade hero-stagger-delay-4">
         <a 
           href="#projects" 
-          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-white bg-[#000000] dark:bg-[#3B82F6] hover:bg-[#0047FF] dark:hover:bg-[#2563EB] transition-all duration-200 rounded-full shadow-sm hover:shadow-md focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none"
+          class="spring-btn inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-white bg-[#000000] dark:bg-[#3B82F6] hover:bg-[#0047FF] dark:hover:bg-[#2563EB] transition-all duration-200 rounded-full shadow-sm hover:shadow-md focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none"
         >
           <span data-i18n="heroCtaProjects">Lihat Proyek</span>
           <svg class="w-4 h-4" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M7 7l10 10"/><path d="M17 7v10H7"/></svg>
@@ -45,7 +70,7 @@
           download="Mohamad-Arifin-Hasbi-CV.pdf"
           target="_blank" 
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-text-primary bg-white dark:bg-white/5 border border-gray-300 dark:border-white/8 hover:bg-gray-50 dark:hover:bg-white/8 transition-all duration-200 rounded-full focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none"
+          class="spring-btn inline-flex items-center justify-center gap-2 px-6 py-3.5 text-sm font-semibold text-text-primary bg-white dark:bg-white/5 border border-gray-300 dark:border-white/8 hover:bg-gray-50 dark:hover:bg-white/8 transition-all duration-200 rounded-full focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none"
         >
           <svg class="w-4 h-4 text-[#0047FF] dark:text-[#60A5FA]" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M14.5 2H6a2 2 0 0 0-2 2v16a2 2 0 0 0 2 2h12a2 2 0 0 0 2-2V7.5L14.5 2z"/><polyline points="14 2 14 8 20 8"/></svg>
           <span data-i18n="heroCtaCv">Download CV</span>
@@ -56,7 +81,7 @@
           href="https://github.com/arifuong" 
           target="_blank" 
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center w-12 h-12 text-text-secondary hover:text-[#0047FF] dark:hover:text-[#60A5FA] bg-gray-50 dark:bg-white/5 hover:bg-blue-50 dark:hover:bg-white/8 border border-gray-200 dark:border-white/8 rounded-full transition-colors focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none ml-2"
+          class="spring-btn inline-flex items-center justify-center w-12 h-12 text-text-secondary hover:text-[#0047FF] dark:hover:text-[#60A5FA] bg-gray-50 dark:bg-white/5 hover:bg-blue-50 dark:hover:bg-white/8 border border-gray-200 dark:border-white/8 rounded-full transition-colors focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none ml-2"
           data-i18n-aria="heroAriaGithub"
           aria-label="Profil GitHub Mohamad Arifin Hasbi"
         >
@@ -68,7 +93,7 @@
           href="https://www.linkedin.com/in/mohamad-arifin-hasbi-88915b425/" 
           target="_blank" 
           rel="noopener noreferrer"
-          class="inline-flex items-center justify-center w-12 h-12 text-text-secondary hover:text-[#0047FF] dark:hover:text-[#60A5FA] bg-gray-50 dark:bg-white/5 hover:bg-blue-50 dark:hover:bg-white/8 border border-gray-200 dark:border-white/8 rounded-full transition-colors focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none"
+          class="spring-btn inline-flex items-center justify-center w-12 h-12 text-text-secondary hover:text-[#0047FF] dark:hover:text-[#60A5FA] bg-gray-50 dark:bg-white/5 hover:bg-blue-50 dark:hover:bg-white/8 border border-gray-200 dark:border-white/8 rounded-full transition-colors focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none"
           data-i18n-aria="heroAriaLinkedin"
           aria-label="Profil LinkedIn Mohamad Arifin Hasbi"
         >
@@ -77,17 +102,76 @@
       </div>
 
       <!-- Subtle LinkedIn Networking Text Link -->
-      <p class="text-xs text-text-muted">
+      <p class="text-xs text-text-muted hero-stagger-fade hero-stagger-delay-4">
         <a 
           href="https://www.linkedin.com/in/mohamad-arifin-hasbi-88915b425/"
           target="_blank"
           rel="noopener noreferrer"
           class="inline-flex items-center gap-1.5 text-text-muted dark:text-[#93C5FD] hover:text-[#0047FF] dark:hover:text-[#BFDBFE] underline decoration-gray-300 dark:decoration-gray-700 hover:decoration-[#0047FF] dark:hover:decoration-[#BFDBFE] transition-colors focus-visible:ring-2 focus-visible:ring-[#0047FF] focus-visible:outline-none rounded"
         >
-          <span data-i18n="heroLinkedinSubtle">Hubungi saya di LinkedIn untuk berjejaring dan berkolaborasi.</span>
+          <span data-i18n="heroLinkedinSubtle">Hubungi Mohamad Arifin Hasbi di LinkedIn untuk berjejaring dan berkolaborasi.</span>
           <svg class="w-3 h-3" viewBox="0 0 24 24" fill="none" stroke="currentColor" stroke-width="2" stroke-linecap="round" stroke-linejoin="round"><path d="M18 13v6a2 2 0 0 1-2 2H5a2 2 0 0 1-2-2V8a2 2 0 0 1 2-2h6"/><polyline points="15 3 21 3 21 9"/><line x1="10" x2="21" y1="14" y2="3"/></svg>
         </a>
       </p>
+
+      <!-- 4) SCROLL INDICATOR DOT (HERO) -->
+      <div class="flex justify-start mt-10 pt-2" aria-hidden="true">
+        <div class="w-5 h-9 rounded-full border-2 border-gray-300 dark:border-white/20 flex items-start justify-center p-1">
+          <div class="w-1.5 h-2.5 bg-[#0047FF] dark:bg-[#60A5FA] rounded-full animate-hero-scroll-dot"></div>
+        </div>
+      </div>
+
     </div>
   </div>
 </section>
+
+<script>
+  // Hero Section IntersectionObserver & Dynamic ResizeObserver (Sticky Curtain & Highlight Sweeps)
+  document.addEventListener('DOMContentLoaded', () => {
+    const heroEl = document.getElementById('hero');
+    const underlineTarget = document.getElementById('highlight-underline-target');
+    const markerTarget = document.getElementById('highlight-marker-target');
+    const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+
+    if (!heroEl) return;
+
+    // IntersectionObserver for Repeatable Text Highlights & Stagger Reveal
+    let highlightTimer: ReturnType<typeof setTimeout> | null = null;
+
+    const heroObserver = new IntersectionObserver((entries) => {
+      entries.forEach((entry) => {
+        if (entry.isIntersecting) {
+          heroEl.classList.add('is-revealed');
+
+          if (!isReducedMotion) {
+            if (highlightTimer) clearTimeout(highlightTimer);
+
+            underlineTarget?.classList.remove('is-active');
+            markerTarget?.classList.remove('is-active');
+
+            highlightTimer = setTimeout(() => {
+              underlineTarget?.classList.add('is-active');
+
+              setTimeout(() => {
+                markerTarget?.classList.add('is-active');
+              }, 450);
+            }, 600);
+          } else {
+            underlineTarget?.classList.add('is-active');
+            markerTarget?.classList.add('is-active');
+          }
+        } else {
+          if (!isReducedMotion) {
+            underlineTarget?.classList.remove('is-active');
+            markerTarget?.classList.remove('is-active');
+          }
+        }
+      });
+    }, {
+      root: null,
+      threshold: 0.2
+    });
+
+    heroObserver.observe(heroEl);
+  });
+</script>

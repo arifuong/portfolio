@@ -1,7 +1,7 @@
 {
-  "languages": ["Java", "PHP", "JavaScript", "TypeScript", "HTML", "CSS", "SQL"],
+  "languages": ["Java", "PHP", "JavaScript", "TypeScript", "Python", "HTML", "CSS", "SQL"],
   "frameworks": ["Spring Boot", "Laravel", "React", "CodeIgniter", "Tailwind CSS", "Bootstrap"],
   "database": ["MySQL"],
-  "tools": ["Git", "GitHub", "VS Code", "Postman", "Figma", "Docker"],
-  "concepts": ["OOP", "REST API", "MVC", "Clean Architecture", "JWT Authentication"]
+  "tools": ["Git", "GitHub", "VS Code", "Postman", "Figma", "Docker", "Google Cloud Platform"],
+  "concepts": ["OOP", "REST API", "MVC", "Clean Architecture", "JWT Authentication", "Machine Learning", "Natural Language Processing"]
 }

@@ -1,0 +1,261 @@
+/* ==========================================================================
+   PURE CSS CURTAIN STACK TRANSITION (HERO STICKY -> ABOUT OVERLAY)
+   ALL SECTIONS AFTER ABOUT (SKILLS, PROJECTS, EXPERIENCE, CONTACT) USE NORMAL CSS SCROLL.
+   ========================================================================== */
+
+/* ===== Pure CSS Curtain Stack Transition (Hero Sticky -> About Overlay) ===== */
+#hero {
+  position: sticky;
+  top: 0;
+  z-index: 1;
+  min-height: 100dvh;
+}
+
+#about {
+  position: relative;
+  z-index: 2;
+  background-color: #FFFFFF;
+}
+
+html.dark #about {
+  background-color: #0B1120;
+}
+
+/* Sections after About (Skills, Projects, Experience, Contact) return to normal document flow */
+#skills,
+#projects,
+#experience,
+#contact {
+  position: relative;
+  z-index: 3;
+}
+
+/* ===== 1. Hero Curved Accent Line ===== */
+@keyframes curvedLineDash {
+  0% {
+    stroke-dashoffset: 1200;
+  }
+  50% {
+    stroke-dashoffset: 0;
+  }
+  100% {
+    stroke-dashoffset: -1200;
+  }
+}
+
+.hero-curved-line {
+  stroke-dasharray: 600;
+  animation: curvedLineDash 16s linear infinite;
+  will-change: stroke-dashoffset;
+}
+
+/* ===== 2. Hero Text Staggered Reveal ===== */
+.hero-stagger-fade {
+  opacity: 0;
+  transform: translate3d(0, 20px, 0);
+  transition: opacity 650ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 650ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+#hero.is-revealed .hero-stagger-fade {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+.hero-stagger-delay-1 { transition-delay: 100ms; }
+.hero-stagger-delay-2 { transition-delay: 250ms; }
+.hero-stagger-delay-3 { transition-delay: 400ms; }
+.hero-stagger-delay-4 { transition-delay: 550ms; }
+
+/* ===== 3. Text Underline Sweep ("analyzing data") ===== */
+.highlight-underline {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+}
+
+.highlight-underline::after {
+  content: '';
+  position: absolute;
+  left: 0;
+  bottom: 1px;
+  width: 100%;
+  height: 3px;
+  background-color: #F97316; /* Bright Orange Accent */
+  transform: scaleX(0);
+  transform-origin: left center;
+  transition: transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  border-radius: 2px;
+}
+
+.highlight-underline.is-active::after {
+  transform: scaleX(1);
+}
+
+/* ===== 3b. Text Marker Sweep ("creating insights") ===== */
+.highlight-marker {
+  position: relative;
+  display: inline-block;
+  white-space: nowrap;
+  background-image: linear-gradient(120deg, rgba(0, 71, 255, 0.20) 0%, rgba(96, 165, 250, 0.30) 100%);
+  background-repeat: no-repeat;
+  background-size: 0% 80%;
+  background-position: 0 85%;
+  transition: background-size 650ms cubic-bezier(0.16, 1, 0.3, 1);
+  padding: 0 3px;
+  border-radius: 4px;
+}
+
+html.dark .highlight-marker {
+  background-image: linear-gradient(120deg, rgba(37, 99, 235, 0.40) 0%, rgba(96, 165, 250, 0.30) 100%);
+}
+
+.highlight-marker.is-active {
+  background-size: 100% 80%;
+}
+
+/* ===== 4. Scroll Indicator Pulsing Dot ===== */
+@keyframes scrollDotPulse {
+  0%, 100% {
+    transform: translate3d(0, 0, 0) scale(1);
+    opacity: 0.6;
+  }
+  50% {
+    transform: translate3d(0, 6px, 0) scale(1.15);
+    opacity: 1;
+  }
+}
+
+.animate-hero-scroll-dot {
+  animation: scrollDotPulse 2s cubic-bezier(0.4, 0, 0.6, 1) infinite;
+  will-change: transform, opacity;
+}
+
+/* ===== 5. Experience Timeline Scroll Reveal & Progress ===== */
+.experience-card-reveal {
+  opacity: 0;
+  transform: translate3d(0, 24px, 0);
+  transition: opacity 600ms cubic-bezier(0.16, 1, 0.3, 1),
+              transform 600ms cubic-bezier(0.16, 1, 0.3, 1);
+  will-change: opacity, transform;
+}
+
+.experience-card-reveal.is-visible {
+  opacity: 1;
+  transform: translate3d(0, 0, 0);
+}
+
+/* ===== 6. Project Card Hover & Touch Ripple ===== */
+.interactive-card {
+  position: relative;
+  overflow: hidden;
+  transition: transform 220ms ease-out,
+              box-shadow 220ms ease-out,
+              border-color 220ms ease-out;
+  will-change: transform;
+}
+
+.interactive-card:hover {
+  transform: translate3d(0, -4px, 0);
+  box-shadow: 0 12px 28px -6px rgba(15, 23, 42, 0.08);
+}
+
+html.dark .interactive-card:hover {
+  box-shadow: 0 14px 32px -6px rgba(0, 0, 0, 0.4);
+}
+
+.img-zoom-reveal {
+  overflow: hidden;
+}
+
+.img-zoom-reveal img {
+  transition: transform 350ms ease-out;
+  will-change: transform;
+}
+
+.interactive-card:hover .img-zoom-reveal img,
+.img-zoom-reveal:hover img {
+  transform: scale(1.02);
+}
+
+.touch-ripple {
+  position: absolute;
+  border-radius: 50%;
+  background: rgba(0, 71, 255, 0.16);
+  transform: scale(0);
+  animation: rippleFade 460ms cubic-bezier(0.16, 1, 0.3, 1) forwards;
+  pointer-events: none;
+}
+
+html.dark .touch-ripple {
+  background: rgba(96, 165, 250, 0.22);
+}
+
+@keyframes rippleFade {
+  to {
+    transform: scale(2.2);
+    opacity: 0;
+  }
+}
+
+/* ===== ACCESSIBILITY: No-JS & Prefers Reduced Motion Fallbacks ===== */
+@media (scripting: none) {
+  .hero-stagger-fade,
+  .experience-card-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .highlight-underline::after {
+    transform: scaleX(1) !important;
+  }
+
+  .highlight-marker {
+    background-size: 100% 80% !important;
+  }
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *,
+  *::before,
+  *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+
+  #hero {
+    position: relative !important;
+    top: auto !important;
+  }
+
+  .hero-curved-line,
+  .animate-hero-scroll-dot {
+    animation: none !important;
+  }
+
+  .hero-stagger-fade,
+  .experience-card-reveal {
+    opacity: 1 !important;
+    transform: none !important;
+  }
+
+  .highlight-underline::after {
+    transform: scaleX(1) !important;
+  }
+
+  .highlight-marker {
+    background-size: 100% 80% !important;
+  }
+
+  .interactive-card,
+  .img-zoom-reveal img {
+    transform: none !important;
+  }
+
+  .touch-ripple {
+    display: none !important;
+  }
+}

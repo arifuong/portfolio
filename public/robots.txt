@@ -1,4 +1,17 @@
+# https://www.robotstxt.org/robotstxt.html
 User-agent: *
 Allow: /
 
+# Block non-essential paths
+Disallow: /_astro/
+Disallow: /js/protection.js
+
+# Sitemaps
 Sitemap: https://portfolio-zeta-navy-gbloxdhna7.vercel.app/sitemap-index.xml
+
+# Crawl-delay (respected by Bing, Yandex)
+User-agent: Bingbot
+Crawl-delay: 1
+
+User-agent: Yandex
+Crawl-delay: 2
