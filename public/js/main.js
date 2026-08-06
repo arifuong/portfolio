@@ -10,8 +10,12 @@
    * Get currently active language from localStorage or default
    */
   function getCurrentLang() {
-    const saved = localStorage.getItem(STORAGE_KEY);
-    return saved === 'en' ? 'en' : DEFAULT_LANG;
+    try {
+      const saved = localStorage.getItem(STORAGE_KEY);
+      return saved === 'en' ? 'en' : DEFAULT_LANG;
+    } catch (e) {
+      return DEFAULT_LANG;
+    }
   }
 
   /**
@@ -51,6 +55,37 @@
         btn.classList.add('active');
       } else {
         btn.classList.remove('active');
+      }
+    });
+  }
+
+  /**
+   * Helper function to perform DOM text/attr replacement
+   */
+  function doTranslateDOM(dict, elements) {
+    elements.forEach((el) => {
+      // data-i18n -> textContent
+      const i18nKey = el.getAttribute('data-i18n');
+      if (i18nKey && dict[i18nKey] !== undefined) {
+        el.textContent = dict[i18nKey];
+      }
+
+      // data-i18n-placeholder -> placeholder
+      const placeholderKey = el.getAttribute('data-i18n-placeholder');
+      if (placeholderKey && dict[placeholderKey] !== undefined) {
+        el.setAttribute('placeholder', dict[placeholderKey]);
+      }
+
+      // data-i18n-aria -> aria-label
+      const ariaKey = el.getAttribute('data-i18n-aria');
+      if (ariaKey && dict[ariaKey] !== undefined) {
+        el.setAttribute('aria-label', dict[ariaKey]);
+      }
+
+      // data-i18n-title -> title attribute
+      const titleKey = el.getAttribute('data-i18n-title');
+      if (titleKey && dict[titleKey] !== undefined) {
+        el.setAttribute('title', dict[titleKey]);
       }
     });
   }
@@ -102,66 +137,45 @@
   }
 
   /**
-   * Helper function to perform DOM text/attr replacement
-   */
-  function doTranslateDOM(dict, elements) {
-    elements.forEach((el) => {
-      // data-i18n -> textContent
-      const i18nKey = el.getAttribute('data-i18n');
-      if (i18nKey && dict[i18nKey] !== undefined) {
-        el.textContent = dict[i18nKey];
-      }
-
-      // data-i18n-placeholder -> placeholder
-      const placeholderKey = el.getAttribute('data-i18n-placeholder');
-      if (placeholderKey && dict[placeholderKey] !== undefined) {
-        el.setAttribute('placeholder', dict[placeholderKey]);
-      }
-
-      // data-i18n-aria -> aria-label
-      const ariaKey = el.getAttribute('data-i18n-aria');
-      if (ariaKey && dict[ariaKey] !== undefined) {
-        el.setAttribute('aria-label', dict[ariaKey]);
-      }
-
-      // data-i18n-title -> title attribute
-      const titleKey = el.getAttribute('data-i18n-title');
-      if (titleKey && dict[titleKey] !== undefined) {
-        el.setAttribute('title', dict[titleKey]);
-      }
-    });
-  }
-
-  /**
    * Switch language handler
    */
   function switchLanguage(targetLang) {
     const current = getCurrentLang();
     if (targetLang === current) return;
 
-    localStorage.setItem(STORAGE_KEY, targetLang);
+    try {
+      localStorage.setItem(STORAGE_KEY, targetLang);
+    } catch (e) {
+      console.warn('Unable to save language preference to localStorage:', e);
+    }
     applyTranslations(targetLang, true);
   }
 
-  /**
-   * Initialize i18n system on DOMContentLoaded
-   */
-  document.addEventListener('DOMContentLoaded', () => {
+  function initI18n() {
     const initialLang = getCurrentLang();
     applyTranslations(initialLang, false);
 
     // Attach click handlers to language switcher buttons
     const switcherBtns = document.querySelectorAll('.lang-switcher-btn');
     switcherBtns.forEach((btn) => {
-      btn.addEventListener('click', (e) => {
+      btn.onclick = (e) => {
         e.preventDefault();
         const targetLang = btn.getAttribute('data-lang');
         if (targetLang) {
           switchLanguage(targetLang);
         }
-      });
+      };
     });
-  });
+  }
+
+  // Initialize on loading states and astro page transitions
+  if (document.readyState === 'loading') {
+    document.addEventListener('DOMContentLoaded', initI18n);
+  } else {
+    initI18n();
+  }
+
+  document.addEventListener('astro:page-load', initI18n);
 
   // Expose global API
   window.i18n = {

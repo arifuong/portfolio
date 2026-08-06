@@ -19,7 +19,7 @@
 
   function applyTheme(theme) {
     const root = document.documentElement;
-    const metaThemeColor = document.getElementById('theme-meta');
+    const metaThemeColor = document.querySelector('meta[name="theme-color"]');
     
     if (theme === 'dark') {
       root.classList.add('dark');
@@ -82,12 +82,17 @@
     });
   }
 
-  // Bind click listeners when DOM is interactive or complete
+  // Bind click listeners when DOM is interactive, complete, or astro page loads
   if (document.readyState === 'loading') {
     document.addEventListener('DOMContentLoaded', bindEvents);
   } else {
     bindEvents();
   }
+
+  document.addEventListener('astro:page-load', () => {
+    initTheme();
+    bindEvents();
+  });
 
   // Listen for system theme changes if user hasn't explicitly set a preference
   if (window.matchMedia) {
@@ -97,18 +102,5 @@
         applyTheme(newTheme);
       }
     });
-  }
-
-  // Development check for CV file presence
-  if (window.location.hostname === 'localhost' || window.location.hostname === '127.0.0.1') {
-    fetch('/cv/Mohamad-Arifin-Hasbi-CV.pdf', { method: 'HEAD' })
-      .then(response => {
-        if (!response.ok) {
-          console.warn('Development Warning: CV PDF file is missing at /cv/Mohamad-Arifin-Hasbi-CV.pdf');
-        }
-      })
-      .catch(() => {
-        console.warn('Development Warning: CV PDF file is missing at /cv/Mohamad-Arifin-Hasbi-CV.pdf');
-      });
   }
 })();

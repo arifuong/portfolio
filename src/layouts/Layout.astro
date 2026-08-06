@@ -318,5 +318,10 @@ const jsonLdGraph = {
       setTimeout(() => ripple.remove(), 480);
     });
   </script>
+  <!-- External Static Client Scripts (is:inline ensures scripts load reliably in Vercel production) -->
+  <script is:inline src="/js/i18n.js"></script>
+  <script is:inline src="/js/theme.js"></script>
+  <script is:inline src="/js/main.js"></script>
+  <script is:inline src="/js/protection.js"></script>
 </body>
 </html>
