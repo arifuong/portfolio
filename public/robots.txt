@@ -2,12 +2,12 @@
 User-agent: *
 Allow: /
 
-# Block non-essential paths
+# Block non-essential internal paths
 Disallow: /_astro/
 Disallow: /js/protection.js
 
-# Sitemaps
-Sitemap: https://portfolio-zeta-navy-gbloxdhna7.vercel.app/sitemap-index.xml
+# Official Sitemap Index
+Sitemap: https://mohamadarifinhasbi.vercel.app/sitemap-index.xml
 
 # Crawl-delay (respected by Bing, Yandex)
 User-agent: Bingbot

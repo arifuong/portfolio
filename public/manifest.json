@@ -1,8 +1,8 @@
 {
-  "name": "Mohamad Arifin Hasbi — Full Stack Developer",
+  "name": "Mohamad Arifin Hasbi — Full Stack Developer & AI Engineer",
   "short_name": "Arifin Hasbi",
-  "description": "Portofolio resmi Mohamad Arifin Hasbi, Full Stack Developer dan mahasiswa Teknik Informatika STMIK Mardira Indonesia.",
-  "start_url": "/",
+  "description": "Portfolio resmi Mohamad Arifin Hasbi — Full Stack Developer, Software Engineer, dan AI Engineer dari Indonesia.",
+  "start_url": "https://mohamadarifinhasbi.vercel.app/",
   "display": "standalone",
   "background_color": "#ffffff",
   "theme_color": "#0047FF",
@@ -10,7 +10,7 @@
   "scope": "/",
   "lang": "id",
   "dir": "ltr",
-  "categories": ["portfolio", "personal", "developer"],
+  "categories": ["portfolio", "personal", "developer", "technology"],
   "icons": [
     {
       "src": "/favicon/favicon-192x192.png",

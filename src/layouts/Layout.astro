@@ -7,13 +7,13 @@ interface Props {
   keywords?: string;
 }
 
-const SITE_URL = 'https://portfolio-zeta-navy-gbloxdhna7.vercel.app';
+const SITE_URL = 'https://mohamadarifinhasbi.vercel.app';
 const SITE_NAME = 'Mohamad Arifin Hasbi';
 
 const {
   title = "Mohamad Arifin Hasbi | Portfolio | Full Stack Developer | AI Engineer | Cloud Computing",
-  description = "Portfolio resmi Mohamad Arifin Hasbi — Full Stack Developer, AI Engineer, dan Cloud Computing Enthusiast. Mahasiswa Teknik Informatika STMIK Mardira Indonesia (IPK 3.64). Berpengalaman dengan Spring Boot, Laravel, React, Google Cloud, dan Machine Learning.",
-  keywords = "Mohamad Arifin Hasbi, Portfolio Mohamad Arifin Hasbi, Full Stack Developer, AI Engineer, Cloud Computing, Machine Learning, Google Cloud, Data Analyst, web developer, Laravel, Spring Boot, React, CodeIgniter, MySQL, STMIK Mardira Indonesia, Teknik Informatika, JavaScript, TypeScript, Java, PHP, Cloud Engineer"
+  description = "Portfolio resmi Mohamad Arifin Hasbi — Full Stack Developer, Software Engineer, Web Developer, dan AI Engineer dari Indonesia. Menguasai Java (Spring Boot), PHP (Laravel), JavaScript/TypeScript (React, Next.js, Node.js), Python, SQL, Google Cloud Platform, Machine Learning, dan Data Analyst.",
+  keywords = "Mohamad Arifin Hasbi, Full Stack Developer, Web Developer, Backend Developer, Frontend Developer, Machine Learning, Data Analyst, Artificial Intelligence, Google Cloud, Portfolio, Software Engineer, Python, JavaScript, TypeScript, Astro, React, Next.js, Node.js, Laravel, SQL, STMIK Mardira Indonesia"
 } = Astro.props;
 
 const canonicalURL = new URL(
@@ -30,15 +30,15 @@ const personSchema = {
   "name": "Mohamad Arifin Hasbi",
   "givenName": "Mohamad Arifin",
   "familyName": "Hasbi",
-  "jobTitle": ["Full Stack Developer", "AI Engineer", "Cloud Computing Enthusiast"],
-  "description": "Mohamad Arifin Hasbi adalah Full Stack Developer, AI Engineer, dan Cloud Computing Enthusiast. Mahasiswa Teknik Informatika di STMIK Mardira Indonesia dengan IPK 3.64. Menguasai Spring Boot, Laravel, React, Google Cloud Platform, dan Machine Learning.",
+  "jobTitle": ["Full Stack Developer", "Software Engineer", "Web Developer", "Backend Developer", "Frontend Developer", "AI Engineer"],
+  "description": "Mohamad Arifin Hasbi adalah seorang Full Stack Developer, Software Engineer, dan AI Engineer dari Indonesia. Menguasai Java (Spring Boot), PHP (Laravel, CodeIgniter), JavaScript/TypeScript (React, Next.js, Node.js), Python, Google Cloud Platform, Machine Learning, Data Analyst, dan SQL.",
   "url": canonicalURL.toString(),
   "image": {
     "@type": "ImageObject",
     "url": new URL('/profile.webp', SITE_URL).toString(),
     "width": 400,
     "height": 400,
-    "caption": "Foto Mohamad Arifin Hasbi — Full Stack Developer dan AI Engineer"
+    "caption": "Foto Mohamad Arifin Hasbi — Full Stack Developer, Software Engineer, dan AI Engineer"
   },
   "email": "mailto:arifuong@gmail.com",
   "telephone": "+6285846653147",
@@ -50,30 +50,35 @@ const personSchema = {
   "sameAs": [
     "https://github.com/arifuong",
     "https://www.linkedin.com/in/mohamad-arifin-hasbi-88915b425/",
+    "mailto:arifuong@gmail.com",
     "https://wa.me/6285846653147"
   ],
   "knowsAbout": [
-    "Full Stack Development",
+    "Full Stack Developer",
+    "Web Developer",
+    "Backend Developer",
+    "Frontend Developer",
+    "Software Engineer",
     "Artificial Intelligence",
     "Machine Learning",
-    "Cloud Computing",
-    "Google Cloud Platform",
-    "Natural Language Processing",
-    "Software Engineering",
-    "Data Analysis",
+    "Data Analyst",
+    "Google Cloud",
+    "Portfolio",
+    "Python",
+    "JavaScript",
+    "TypeScript",
+    "Astro",
+    "React",
+    "Next.js",
+    "Node.js",
+    "Laravel",
+    "SQL",
     "Java",
     "Spring Boot",
     "PHP",
-    "Laravel",
     "CodeIgniter",
-    "JavaScript",
-    "TypeScript",
-    "React",
-    "Python",
     "MySQL",
-    "REST API",
-    "Clean Architecture",
-    "Docker"
+    "REST API"
   ],
   "knowsLanguage": ["id", "en"],
   "hasCredential": {
@@ -88,15 +93,16 @@ const personSchema = {
   "nationality": {
     "@type": "Country",
     "name": "Indonesia"
-  }
+  },
+  "@id": `${SITE_URL}/#person`
 };
 
 // ========== Structured Data: WebSite ==========
 const websiteSchema = {
   "@context": "https://schema.org",
   "@type": "WebSite",
-  "name": "Portfolio Mohamad Arifin Hasbi",
-  "alternateName": ["Mohamad Arifin Hasbi Portfolio", "Arifin Hasbi"],
+  "name": "Portfolio Mohamad Arifin Hasbi | Full Stack Developer & AI Engineer",
+  "alternateName": ["Mohamad Arifin Hasbi Portfolio", "Arifin Hasbi Portfolio", "Mohamad Arifin Hasbi Web Developer"],
   "url": SITE_URL,
   "description": description,
   "inLanguage": "id",
@@ -108,6 +114,10 @@ const websiteSchema = {
     "@type": "SearchAction",
     "target": `${SITE_URL}/?q={search_term_string}`,
     "query-input": "required name=search_term_string"
+  },
+  "@id": `${SITE_URL}/#website`,
+  "publisher": {
+    "@id": `${SITE_URL}/#person`
   }
 };
 
@@ -122,7 +132,8 @@ const breadcrumbSchema = {
       "name": "Portfolio Mohamad Arifin Hasbi",
       "item": SITE_URL
     }
-  ]
+  ],
+  "@id": `${SITE_URL}/#breadcrumb`
 };
 
 // ========== Structured Data: ProfilePage ==========
@@ -139,7 +150,8 @@ const profilePageSchema = {
   },
   "breadcrumb": {
     "@id": `${SITE_URL}/#breadcrumb`
-  }
+  },
+  "@id": `${SITE_URL}/#profilepage`
 };
 
 // ========== Structured Data: FAQPage ==========
@@ -152,15 +164,15 @@ const faqSchema = {
       "name": "Siapa Mohamad Arifin Hasbi?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Mohamad Arifin Hasbi adalah seorang Full Stack Developer, AI Engineer, dan Cloud Computing Enthusiast. Saat ini ia merupakan mahasiswa Teknik Informatika di STMIK Mardira Indonesia dengan IPK 3.64/4.00. Ia menguasai berbagai teknologi seperti Java Spring Boot, Laravel, React, Google Cloud Platform, dan Machine Learning."
+        "text": "Mohamad Arifin Hasbi adalah seorang Full Stack Developer, Software Engineer, Web Developer, dan AI Engineer dari Indonesia. Saat ini ia merupakan mahasiswa Teknik Informatika di STMIK Mardira Indonesia dengan IPK 3.64/4.00. Menguasai Java Spring Boot, Laravel, React, Next.js, Node.js, Python, SQL, Google Cloud Platform, dan Machine Learning."
       }
     },
     {
       "@type": "Question",
-      "name": "Apa keahlian Mohamad Arifin Hasbi?",
+      "name": "Apa keahlian dan layanan utama Mohamad Arifin Hasbi?",
       "acceptedAnswer": {
         "@type": "Answer",
-        "text": "Mohamad Arifin Hasbi memiliki keahlian di bidang Full Stack Development (Spring Boot, Laravel, React), Artificial Intelligence dan Machine Learning, Cloud Computing (Google Cloud Platform), serta Data Analysis. Ia juga berpengalaman dalam REST API development, clean architecture, dan database management dengan MySQL."
+        "text": "Mohamad Arifin Hasbi memiliki keahlian di bidang Full Stack Development (Frontend Developer & Backend Developer), Software Engineering, Data Analyst, Machine Learning, Artificial Intelligence, dan Cloud Computing (Google Cloud). Teknologi yang dikuasai meliputi Python, JavaScript, TypeScript, Astro, React, Next.js, Node.js, Laravel, Java Spring Boot, dan SQL."
       }
     },
     {
@@ -171,18 +183,19 @@ const faqSchema = {
         "text": "Mohamad Arifin Hasbi dapat dihubungi melalui email di arifuong@gmail.com, LinkedIn di linkedin.com/in/mohamad-arifin-hasbi-88915b425, WhatsApp di +62 858-4665-3147, atau melalui profil GitHub di github.com/arifuong."
       }
     }
-  ]
+  ],
+  "@id": `${SITE_URL}/#faq`
 };
 
-// Combined JSON-LD graph
-const jsonLd = {
+// Single JSON-LD Graph Payload
+const jsonLdGraph = {
   "@context": "https://schema.org",
   "@graph": [
-    { ...personSchema, "@id": `${SITE_URL}/#person` },
-    { ...websiteSchema, "@id": `${SITE_URL}/#website`, "publisher": { "@id": `${SITE_URL}/#person` } },
-    { ...breadcrumbSchema, "@id": `${SITE_URL}/#breadcrumb` },
-    { ...profilePageSchema, "@id": `${SITE_URL}/#profilepage` },
-    { ...faqSchema, "@id": `${SITE_URL}/#faq` }
+    personSchema,
+    websiteSchema,
+    breadcrumbSchema,
+    profilePageSchema,
+    faqSchema
   ]
 };
 ---
@@ -192,7 +205,7 @@ const jsonLd = {
 <head>
   <meta charset="UTF-8" />
   <meta name="viewport" content="width=device-width, initial-scale=1.0" />
-
+  
   <!-- Search Engine Verification -->
   <meta name="google-site-verification" content="jowOgDp2UHmKBaT8Jets1JUjZK6bZnIGAsDGNXbgCVI" />
   <meta name="msvalidate.01" content="BING_VERIFICATION_CODE_HERE" />
@@ -209,7 +222,7 @@ const jsonLd = {
   <meta name="theme-color" content="#0B1120" media="(prefers-color-scheme: dark)" />
   <meta name="color-scheme" content="light dark" />
 
-  <!-- Anti-Flicker Inline Theme Script (MUST stay inline, runs before DOM render) -->
+  <!-- Anti-Flicker Inline Theme Script -->
   <script is:inline>
     (function() {
       try {
@@ -246,48 +259,42 @@ const jsonLd = {
   <meta name="title" content={title} />
   <meta name="description" content={description} />
   <meta name="keywords" content={keywords} />
-  <meta name="author" content="Mohamad Arifin Hasbi" />
+  <meta name="author" content={SITE_NAME} />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
-  <link rel="canonical" href={canonicalURL} />
+  <link rel="canonical" href={canonicalURL.toString()} />
   <link rel="sitemap" href="/sitemap-index.xml" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="profile" />
-  <meta property="og:url" content={canonicalURL} />
+  <meta property="og:url" content={canonicalURL.toString()} />
   <meta property="og:title" content={title} />
   <meta property="og:description" content={description} />
-  <meta property="og:image" content={ogImageURL} />
+  <meta property="og:image" content={ogImageURL.toString()} />
   <meta property="og:image:width" content="1200" />
   <meta property="og:image:height" content="630" />
-  <meta property="og:image:alt" content="Mohamad Arifin Hasbi — Full Stack Developer, AI Engineer & Cloud Computing Portfolio" />
+  <meta property="og:image:alt" content="Mohamad Arifin Hasbi — Full Stack Developer & AI Engineer Portfolio" />
   <meta property="og:site_name" content="Portfolio Mohamad Arifin Hasbi" />
   <meta property="og:locale" content="id_ID" />
   <meta property="og:locale:alternate" content="en_US" />
   <meta property="profile:first_name" content="Mohamad Arifin" />
   <meta property="profile:last_name" content="Hasbi" />
 
-  <!-- Twitter Card (using name attribute per Twitter spec) -->
+  <!-- Twitter Card -->
   <meta name="twitter:card" content="summary_large_image" />
   <meta name="twitter:url" content={canonicalURL.toString()} />
   <meta name="twitter:title" content={title} />
   <meta name="twitter:description" content={description} />
   <meta name="twitter:image" content={ogImageURL.toString()} />
-  <meta name="twitter:image:alt" content="Mohamad Arifin Hasbi — Full Stack Developer, AI Engineer & Cloud Computing Portfolio" />
+  <meta name="twitter:image:alt" content="Mohamad Arifin Hasbi — Full Stack Developer & AI Engineer Portfolio" />
 
-  <!-- Structured Data JSON-LD (single @graph for all schemas) -->
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLd)} />
+  <!-- Structured Data JSON-LD (single @graph payload) -->
+  <script type="application/ld+json" set:html={JSON.stringify(jsonLdGraph)} />
 </head>
 <body class="bg-[#FFFFFF] dark:bg-[#0B1120] text-[#4B5563] dark:text-[#CBD5E1] antialiased selection:bg-[#0047FF] dark:selection:bg-[#60A5FA] selection:text-white min-h-screen flex flex-col w-full max-w-full transition-colors duration-300">
   
   <slot />
 
-  <!-- Non-critical scripts: moved to end of body with defer for performance -->
-  <script is:inline src="/js/theme.js" defer></script>
-  <script is:inline src="/js/i18n.js" defer></script>
-  <script is:inline src="/js/main.js" defer></script>
-  <script is:inline src="/js/protection.js" defer></script>
-
-  <!-- Client-side Touch/Click Ripple Event Listener (Primary CTAs, Buttons, and Cards Only) -->
+  <!-- Client-side Touch/Click Ripple Event Listener (Desktop Only) -->
   <script>
     document.addEventListener('click', (e) => {
       const target = (e.target as HTMLElement).closest('.interactive-card, .spring-btn, a.primary-cta');

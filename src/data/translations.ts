@@ -102,8 +102,8 @@ export interface TranslationSchema {
 
 export const translations: Record<'en' | 'id', TranslationSchema> = {
   en: {
-    metaTitle: "Mohamad Arifin Hasbi — Full Stack Developer & IT Student",
-    metaDesc: "Official portfolio of Mohamad Arifin Hasbi, Full Stack Developer and Informatics Engineering student at STMIK Mardira Indonesia (GPA 3.64). Skilled in Spring Boot, Laravel, React, and MySQL.",
+    metaTitle: "Mohamad Arifin Hasbi | Portfolio | Full Stack Developer | Software Engineer | AI & Web Developer",
+    metaDesc: "Official portfolio of Mohamad Arifin Hasbi — Full Stack Developer, Software Engineer, Web Developer, and AI Specialist from Indonesia. Expert in JavaScript, TypeScript, React, Next.js, Node.js, Python, Laravel, SQL, Google Cloud, and Machine Learning.",
 
     // Nav
     navAbout: "About",
@@ -119,21 +119,21 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     // Hero
     heroBadge: "GPA 3.64 — STMIK Mardira Indonesia",
     heroName: "Mohamad Arifin Hasbi",
-    heroRole: "Full Stack Developer & Informatics Student",
-    heroSummary: "Building modern web applications with Spring Boot, Laravel, and React using clean architecture and high performance.",
+    heroRole: "Full Stack Developer · Software Engineer · AI & Web Developer",
+    heroSummary: "Building modern web applications and AI solutions with expertise in Frontend Developer & Backend Developer systems using JavaScript, TypeScript, Astro, React, Next.js, Node.js, Python, Laravel, SQL, and Google Cloud Platform.",
     heroCtaProjects: "View Projects",
     heroCtaCv: "Download CV",
     heroAriaGithub: "GitHub profile of Mohamad Arifin Hasbi",
     heroAriaLinkedin: "LinkedIn profile of Mohamad Arifin Hasbi",
-    heroLinkedinSubtle: "Connect with me on LinkedIn for networking and collaboration.",
+    heroLinkedinSubtle: "Connect with Mohamad Arifin Hasbi on LinkedIn for networking and collaboration.",
 
     // About
     aboutEyebrow: "About Me",
-    aboutTitle: "Informatics Student with a Passion for Full Stack Engineering",
-    aboutParagraph1: "I am an active 6th-semester student pursuing Informatics Engineering at STMIK Mardira Indonesia with a 3.64/4.00 GPA. I have a deep passion for modern software engineering, scalable backend architecture, and responsive user interfaces.",
-    aboutParagraph2: "Throughout my studies, I have developed web systems using Java (Spring Boot), PHP (Laravel, CodeIgniter), and JavaScript/TypeScript (React). I am experienced in applying clean architecture principles, REST API standards, and relational database management using MySQL.",
-    aboutCoursesTitle: "Relevant Coursework",
-    aboutCoursesList: "Object-Oriented Programming (OOP), Software Engineering, Databases, Web Programming, Expert Systems, Data Structures & Algorithms.",
+    aboutTitle: "Mohamad Arifin Hasbi — Full Stack Developer & Software Engineer from Indonesia",
+    aboutParagraph1: "I am Mohamad Arifin Hasbi, a Full Stack Developer, Software Engineer, and Data Analyst enthusiast from Indonesia. Currently a 6th-semester Informatics Engineering student at STMIK Mardira Indonesia (GPA 3.64/4.00), I specialize in building high-performance web applications, scalable backend systems, and Artificial Intelligence solutions.",
+    aboutParagraph2: "My core technical stack includes JavaScript, TypeScript, Astro, React, Next.js, Node.js, Python, Java (Spring Boot), PHP (Laravel, CodeIgniter), SQL (MySQL), and Google Cloud Platform. I actively integrate Machine Learning and Data Analysis to deliver intelligent software systems.",
+    aboutCoursesTitle: "Relevant Coursework & Certifications",
+    aboutCoursesList: "Google Cloud Skill Badge (Natural Language API), Object-Oriented Programming (OOP), Software Engineering, Database Systems, Web Programming, Expert Systems, Data Structures & Algorithms.",
     aboutStat1Value: "3+",
     aboutStat1Label: "Core Projects",
     aboutStat2Value: "3.64",
@@ -144,35 +144,35 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     // Skills
     skillsEyebrow: "Skills",
     skillsTitle: "Tech Stack & Competencies",
-    skillsDesc: "Technologies and tools I routinely use to design, build, and deploy full stack web applications.",
+    skillsDesc: "Technologies and tools I routinely use as a Full Stack Developer, Backend Developer, and Frontend Developer to engineer modern web applications.",
     catLanguages: "Languages",
     catFrameworks: "Frameworks & Libraries",
-    catDatabase: "Databases",
+    catDatabase: "Databases & SQL",
     catTools: "Tools & Ecosystem",
     catConcepts: "Concepts & Architecture",
 
     // Projects
     projectsEyebrow: "Featured Projects",
     projectsTitle: "Selected Projects & Academic Work",
-    projectsDesc: "Web applications engineered with a strong emphasis on reliability, data security, and maintainable architecture.",
+    projectsDesc: "Web applications engineered with a strong emphasis on reliability, data security, and maintainable software architecture.",
     proj1Title: "Alumni Tracer Study System",
-    proj1Desc: "Web application for tracking and analyzing alumni career outcomes, job relevance, and curriculum feedback. Features administrative analytics dashboard and automated reporting.",
+    proj1Desc: "Full stack web application for tracking and analyzing alumni career outcomes, job relevance, and curriculum feedback. Features administrative analytics dashboard and automated reporting.",
     proj2Title: "Ketupat Cinta Pre-Order System",
     proj2Desc: "E-commerce pre-order platform for artisanal food products, featuring automated order tracking, price calculations, and customer status notifications.",
     proj3Title: "Feline Disease Expert Diagnosis System",
-    proj3Desc: "Expert system application utilizing the Certainty Factor algorithm to diagnose feline medical conditions based on user-selected symptoms.",
+    proj3Desc: "Expert system application utilizing the Certainty Factor algorithm and Machine Learning logic to diagnose feline medical conditions based on user-selected symptoms.",
     projectsViewGithub: "View Source Code on GitHub",
 
     // Experience
     expEyebrow: "Experience",
     expTitle: "Professional & Field Experience",
-    expSubtitle: "A timeline of my professional experience, academic background, and community contributions.",
-    exp1Role: "Enumerator",
+    expSubtitle: "A timeline of my professional experience, academic background, and Data Analyst field contributions.",
+    exp1Role: "Enumerator & Data Analyst",
     exp1Company: "Central Bureau of Statistics (BPS)",
     exp1Project: "Socio-Economic Registration (Regsosek)",
     exp1Period: "2022 – 2023",
     exp1Desc: "Conducted socio-economic field interviews door-to-door, ingested field data into BPS digital systems, and performed on-site data validation and verification.",
-    exp2Role: "Enumerator",
+    exp2Role: "Enumerator & Data Analyst",
     exp2Company: "Ministry of Cooperatives & SMEs RI",
     exp2Project: "National Cooperative Census",
     exp2Period: "2023",
@@ -185,7 +185,7 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     // Contact
     contactEyebrow: "Contact",
     contactTitle: "Let's Connect & Collaborate",
-    contactSubtitle: "Feel free to reach out for collaboration, project inquiries, or just to say hi! I'm always open to discussing new opportunities.",
+    contactSubtitle: "Feel free to reach out for Full Stack Developer, Software Engineer, or AI Web Development projects and internships.",
     contactEmailLabel: "Email",
     contactPhoneLabel: "WhatsApp",
     contactGithubLabel: "GitHub",
@@ -203,8 +203,8 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     footerAriaLinkedin: "LinkedIn profile of Mohamad Arifin Hasbi"
   },
   id: {
-    metaTitle: "Mohamad Arifin Hasbi — Full Stack Developer & Mahasiswa Teknik Informatika",
-    metaDesc: "Portofolio resmi Mohamad Arifin Hasbi, Full Stack Developer dan mahasiswa Teknik Informatika STMIK Mardira Indonesia (IPK 3.64). Menguasai Spring Boot, Laravel, React, dan MySQL.",
+    metaTitle: "Mohamad Arifin Hasbi | Portfolio | Full Stack Developer | Software Engineer | AI & Web Developer",
+    metaDesc: "Portfolio resmi Mohamad Arifin Hasbi — Full Stack Developer, Software Engineer, Web Developer, dan AI Specialist dari Indonesia. Menguasai JavaScript, TypeScript, React, Next.js, Node.js, Python, Laravel, SQL, Google Cloud Platform, dan Machine Learning.",
 
     // Nav
     navAbout: "Tentang",
@@ -220,21 +220,21 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     // Hero
     heroBadge: "IPK 3.64 — STMIK Mardira Indonesia",
     heroName: "Mohamad Arifin Hasbi",
-    heroRole: "Full Stack Developer & Mahasiswa Teknik Informatika",
-    heroSummary: "Membangun aplikasi web modern menggunakan Spring Boot, Laravel, dan React dengan menerapkan clean architecture serta performa yang tinggi.",
+    heroRole: "Full Stack Developer · Software Engineer · AI & Web Developer",
+    heroSummary: "Membangun aplikasi web modern dan solusi AI dengan keahlian Frontend Developer & Backend Developer menggunakan JavaScript, TypeScript, Astro, React, Next.js, Node.js, Python, Laravel, SQL, dan Google Cloud Platform.",
     heroCtaProjects: "Lihat Proyek",
     heroCtaCv: "Download CV",
     heroAriaGithub: "Profil GitHub Mohamad Arifin Hasbi",
     heroAriaLinkedin: "Profil LinkedIn Mohamad Arifin Hasbi",
-    heroLinkedinSubtle: "Hubungi saya di LinkedIn untuk berjejaring dan berkolaborasi.",
+    heroLinkedinSubtle: "Hubungi Mohamad Arifin Hasbi di LinkedIn untuk berjejaring dan berkolaborasi.",
 
     // About
     aboutEyebrow: "Tentang Saya",
-    aboutTitle: "Mahasiswa Teknik Informatika dengan Semangat Full Stack Engineering",
-    aboutParagraph1: "Saya adalah mahasiswa aktif Semester 6 program studi Teknik Informatika di STMIK Mardira Indonesia dengan IPK 3.64/4.00. Saya memiliki ketertarikan mendalam pada pengembangan perangkat lunak modern, arsitektur backend yang scalable, dan antarmuka pengguna yang responsif.",
-    aboutParagraph2: "Selama studi, saya telah membangun sistem web menggunakan Java (Spring Boot), PHP (Laravel, CodeIgniter), dan JavaScript/TypeScript (React). Saya berpengalaman dalam penerapan prinsip clean architecture, standar REST API, serta pengelolaan database relasional menggunakan MySQL.",
-    aboutCoursesTitle: "Mata Kuliah Relevan",
-    aboutCoursesList: "Pemrograman Berbasis Objek (PBO), Rekayasa Perangkat Lunak, Basis Data, Pemrograman Web, Sistem Pakar, Struktur Data & Algoritma.",
+    aboutTitle: "Mohamad Arifin Hasbi — Full Stack Developer & Software Engineer dari Indonesia",
+    aboutParagraph1: "Saya, Mohamad Arifin Hasbi, adalah seorang Full Stack Developer, Software Engineer, dan Data Analyst enthusiast dari Indonesia. Saat ini merupakan mahasiswa aktif Semester 6 program studi Teknik Informatika di STMIK Mardira Indonesia dengan IPK 3.64/4.00, berfokus pada pengembangan aplikasi web performa tinggi, arsitektur backend yang scalable, dan solusi Artificial Intelligence.",
+    aboutParagraph2: "Teknologi utama yang saya kuasai meliputi JavaScript, TypeScript, Astro, React, Next.js, Node.js, Python, Java (Spring Boot), PHP (Laravel, CodeIgniter), SQL (MySQL), serta Google Cloud Platform. Saya juga mengintegrasikan teknik Machine Learning dan Data Analysis dalam pembuatan sistem perangkat lunak yang cerdas.",
+    aboutCoursesTitle: "Sertifikasi & Mata Kuliah Relevan",
+    aboutCoursesList: "Google Cloud Skill Badge (Natural Language API), Pemrograman Berbasis Objek (PBO), Rekayasa Perangkat Lunak, Basis Data, Pemrograman Web, Sistem Pakar, Struktur Data & Algoritma.",
     aboutStat1Value: "3+",
     aboutStat1Label: "Proyek Utama",
     aboutStat2Value: "3.64",
@@ -245,10 +245,10 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     // Skills
     skillsEyebrow: "Keahlian",
     skillsTitle: "Tech Stack & Kompetensi",
-    skillsDesc: "Teknologi dan tools yang rutin saya gunakan untuk merancang, membangun, dan men-deploy aplikasi web full stack.",
+    skillsDesc: "Teknologi dan tools yang rutin saya gunakan sebagai Full Stack Developer, Backend Developer, dan Frontend Developer untuk merancang aplikasi web modern.",
     catLanguages: "Bahasa Pemrograman",
     catFrameworks: "Framework & Library",
-    catDatabase: "Database",
+    catDatabase: "Database & SQL",
     catTools: "Tools & Ekosistem",
     catConcepts: "Konsep & Arsitektur",
 
@@ -257,36 +257,36 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
     projectsTitle: "Proyek Pilihan & Karya Akademik",
     projectsDesc: "Aplikasi web yang saya bangun dengan penekanan kuat pada keandalan, keamanan data, dan arsitektur yang mudah dirawat.",
     proj1Title: "Sistem Informasi Tracer Study Alumni",
-    proj1Desc: "Aplikasi web untuk melacak dan menganalisis karier alumni, relevansi pekerjaan, serta feedback untuk peningkatan kurikulum. Dilengkapi dashboard analitik admin dan pelaporan otomatis.",
-    proj2Title: "Sistem Pre-Order Ketupat Cinta",
-    proj2Desc: "Platform e-commerce pre-order untuk produk makanan olahan, dilengkapi fitur pelacakan pesanan otomatis, perhitungan harga, dan notifikasi status pesanan kepada pelanggan.",
-    proj3Title: "Sistem Pakar Diagnosis Penyakit Kucing",
-    proj3Desc: "Aplikasi sistem pakar yang menerapkan algoritma Certainty Factor untuk mendiagnosis kondisi medis kucing berdasarkan gejala yang dipilih pengguna.",
+    proj1Desc: "Aplikasi web full stack untuk melacak dan menganalisis karier alumni, relevansi pekerjaan, serta feedback untuk peningkatan kurikulum. Dilengkapi dashboard analitik admin dan pelaporan otomatis.",
+    proj2Title: "Ketupat Cinta Pre-Order System",
+    proj2Desc: "Platform e-commerce pre-order produk kuliner, dilengkapi pelacakan pesanan otomatis, kalkulasi harga, dan notifikasi status pelanggan.",
+    proj3Title: "Feline Disease Expert Diagnosis System",
+    proj3Desc: "Aplikasi sistem pakar menggunakan algoritma Certainty Factor dan logika Machine Learning untuk mendiagnosis kondisi medis kucing berdasarkan gejala yang dipilih pengguna.",
     projectsViewGithub: "Lihat Kode Sumber di GitHub",
 
     // Experience
     expEyebrow: "Pengalaman Kerja",
     expTitle: "Pengalaman Lapangan & Profesional",
-    expSubtitle: "Linimasa pengalaman profesional, latar belakang akademis, dan kontribusi komunitas saya.",
-    exp1Role: "Enumerator",
+    expSubtitle: "Linimasa pengalaman profesional, latar belakang akademis, dan kontribusi Data Analyst di lapangan.",
+    exp1Role: "Enumerator & Data Analyst",
     exp1Company: "Badan Pusat Statistik (BPS)",
     exp1Project: "Registrasi Sosial Ekonomi (Regsosek)",
     exp1Period: "2022 – 2023",
-    exp1Desc: "Melakukan wawancara sosial ekonomi lapangan secara door-to-door, menginput data lapangan ke sistem digital BPS, serta melaksanakan validasi dan verifikasi data di lokasi.",
-    exp2Role: "Enumerator",
+    exp1Desc: "Melakukan wawancara lapangan sosio-ekonomi door-to-door, memasukkan data lapangan ke sistem digital BPS, serta melakukan validasi dan verifikasi data di lokasi.",
+    exp2Role: "Enumerator & Data Analyst",
     exp2Company: "Kementerian Koperasi & UKM RI",
-    exp2Project: "Sensus Koperasi Nasional",
+    exp2Project: "Pendataan Lengkap Koperasi & UMKM",
     exp2Period: "2023",
-    exp2Desc: "Melakukan survei dan verifikasi unit usaha secara langsung di lapangan, mencatat profil koperasi, jumlah anggota, aset, serta volume usaha tahunan untuk database nasional.",
+    exp2Desc: "Melakukan survei dan verifikasi unit usaha langsung di lapangan, mencatat profil koperasi, jumlah anggota, aset, dan volume usaha tahunan untuk basis data nasional.",
     exp3Role: "Operator",
-    exp3Company: "SPBU",
+    exp3Company: "Stasiun SPBU",
     exp3Period: "2022 – 2023",
-    exp3Desc: "Melayani pelanggan dalam distribusi bahan bakar, mengelola transaksi tunai dan digital harian, serta memastikan operasional shift mematuhi standar keselamatan secara ketat.",
+    exp3Desc: "Melayani pelanggan dalam distribusi bahan bakar, mengelola transaksi tunai dan digital harian, serta memastikan operasional shift mematuhi standar keselamatan kerja.",
 
     // Contact
     contactEyebrow: "Kontak",
     contactTitle: "Mari Terhubung dan Berkolaborasi",
-    contactSubtitle: "Saya terbuka untuk peluang magang, proyek freelance, atau diskusi seputar pengembangan web. Silakan hubungi saya melalui media apa pun yang tersedia di bawah ini.",
+    contactSubtitle: "Terbuka untuk peluang proyek Full Stack Developer, Software Engineer, magang, atau diskusi seputar pengembangan web dan AI.",
     contactEmailLabel: "Email",
     contactPhoneLabel: "WhatsApp",
     contactGithubLabel: "GitHub",
@@ -300,7 +300,7 @@ export const translations: Record<'en' | 'id', TranslationSchema> = {
 
     // Footer
     footerCopyright: "Mohamad Arifin Hasbi. All Rights Reserved.",
-    footerBackToTop: "Kembali ke atas",
+    footerBackToTop: "Kembali ke bagian atas halaman",
     footerAriaLinkedin: "Profil LinkedIn Mohamad Arifin Hasbi"
   }
 };
