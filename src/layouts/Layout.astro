@@ -143,8 +143,8 @@ const profilePageSchema = {
   "name": title,
   "description": description,
   "url": canonicalURL.toString(),
-  "dateCreated": "2026-01-01",
-  "dateModified": new Date().toISOString().split('T')[0],
+  "dateCreated": "2026-01-01T00:00:00+07:00",
+  "dateModified": new Date().toISOString(),
   "mainEntity": {
     "@id": `${SITE_URL}/#person`
   },
