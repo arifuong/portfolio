@@ -116,7 +116,7 @@ const expKeys = [
 
     cards.forEach((card) => cardObserver.observe(card));
 
-    // 2. Timeline Vertical Scroll Progress Line & Dot Position Calculator
+    // 2. Timeline Vertical Scroll Progress Line & Dot Position Calculator (rAF Throttled for 60 FPS Mobile Performance)
     function updateTimelineProgress() {
       if (!timelineContainer || !progressBar || !progressDot) return;
 
@@ -134,7 +134,18 @@ const expKeys = [
       progressDot.style.transform = `translateY(${dotPosition}px)`;
     }
 
-    window.addEventListener('scroll', updateTimelineProgress, { passive: true });
+    let ticking = false;
+    function onScroll() {
+      if (!ticking) {
+        requestAnimationFrame(() => {
+          updateTimelineProgress();
+          ticking = false;
+        });
+        ticking = true;
+      }
+    }
+
+    window.addEventListener('scroll', onScroll, { passive: true });
     updateTimelineProgress();
   });
 </script>

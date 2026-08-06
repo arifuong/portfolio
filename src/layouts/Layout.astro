@@ -293,8 +293,8 @@ const jsonLd = {
       const target = (e.target as HTMLElement).closest('.interactive-card, .spring-btn, a.primary-cta');
       if (!target) return;
 
-      const isReducedMotion = window.matchMedia('(prefers-reduced-motion: reduce)').matches;
-      if (isReducedMotion) return;
+      const isMobileOrReduced = window.innerWidth < 768 || window.matchMedia('(prefers-reduced-motion: reduce)').matches;
+      if (isMobileOrReduced) return;
 
       const rect = target.getBoundingClientRect();
       const ripple = document.createElement('span');
