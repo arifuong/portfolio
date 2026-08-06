@@ -1,7 +1,7 @@
 @import "tailwindcss";
 @import "./animations.css";
 
-@custom-variant dark (&:where(.dark, .dark *));
+@variant dark (&:where(.dark, .dark *));
 
 :root {
   --text-primary: #0F172A;

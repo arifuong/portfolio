@@ -141,13 +141,17 @@
    */
   function switchLanguage(targetLang) {
     const current = getCurrentLang();
-    if (targetLang === current) return;
-
     try {
       localStorage.setItem(STORAGE_KEY, targetLang);
     } catch (e) {
       console.warn('Unable to save language preference to localStorage:', e);
     }
+
+    if (targetLang === current) {
+      updateSwitcherUI(targetLang);
+      return;
+    }
+
     applyTranslations(targetLang, true);
   }
 
@@ -158,14 +162,18 @@
     // Attach click handlers to language switcher buttons
     const switcherBtns = document.querySelectorAll('.lang-switcher-btn');
     switcherBtns.forEach((btn) => {
-      btn.onclick = (e) => {
-        e.preventDefault();
-        const targetLang = btn.getAttribute('data-lang');
-        if (targetLang) {
-          switchLanguage(targetLang);
-        }
-      };
+      btn.removeEventListener('click', handleLangClick);
+      btn.addEventListener('click', handleLangClick);
     });
+  }
+
+  function handleLangClick(e) {
+    e.preventDefault();
+    const btn = e.currentTarget;
+    const targetLang = btn.getAttribute('data-lang');
+    if (targetLang) {
+      switchLanguage(targetLang);
+    }
   }
 
   // Initialize on loading states and astro page transitions

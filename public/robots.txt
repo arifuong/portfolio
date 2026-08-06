@@ -6,7 +6,8 @@ Allow: /
 Disallow: /_astro/
 Disallow: /js/protection.js
 
-# Official Sitemap Index
+# Official Sitemap Index & Primary Sitemap
+Sitemap: https://mohamadarifinhasbi.vercel.app/sitemap.xml
 Sitemap: https://mohamadarifinhasbi.vercel.app/sitemap-index.xml
 
 # Crawl-delay (respected by Bing, Yandex)

@@ -262,7 +262,10 @@ const jsonLdGraph = {
   <meta name="author" content={SITE_NAME} />
   <meta name="robots" content="index, follow, max-image-preview:large, max-snippet:-1, max-video-preview:-1" />
   <link rel="canonical" href={canonicalURL.toString()} />
-  <link rel="sitemap" href="/sitemap-index.xml" />
+  <link rel="alternate" hreflang="x-default" href={canonicalURL.toString()} />
+  <link rel="alternate" hreflang="id" href={canonicalURL.toString()} />
+  <link rel="alternate" hreflang="en" href={canonicalURL.toString()} />
+  <link rel="sitemap" href="/sitemap.xml" />
 
   <!-- Open Graph / Facebook -->
   <meta property="og:type" content="profile" />
@@ -288,7 +291,7 @@ const jsonLdGraph = {
   <meta name="twitter:image:alt" content="Mohamad Arifin Hasbi — Full Stack Developer & AI Engineer Portfolio" />
 
   <!-- Structured Data JSON-LD (single @graph payload) -->
-  <script type="application/ld+json" set:html={JSON.stringify(jsonLdGraph)} />
+  <script is:inline type="application/ld+json" set:html={JSON.stringify(jsonLdGraph)} />
 </head>
 <body class="bg-[#FFFFFF] dark:bg-[#0B1120] text-[#4B5563] dark:text-[#CBD5E1] antialiased selection:bg-[#0047FF] dark:selection:bg-[#60A5FA] selection:text-white min-h-screen flex flex-col w-full max-w-full transition-colors duration-300">
   
